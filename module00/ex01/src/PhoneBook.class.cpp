@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 22:44:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/14 10:59:14 by mpeulet          ###   ########.fr       */
+/*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
+/*   Updated: 2023/11/14 11:00:52 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#include "PhoneBook.class.hpp"
 
-#include <string>
-#include <iostream>
+/* *** constructor *** */
 
-class	PhoneBook {
-	
-	public:
+PhoneBook::PhoneBook(void) {
+	return ;
+}
 
-		PhoneBook(void);
-		~PhoneBook(void);
+/* *** destructor *** */
 
-	private:
-
-		
-};
-
-#endif
+PhoneBook::~PhoneBook(void) {
+	return ;
+}

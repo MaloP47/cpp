@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/13 16:31:09 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/14 09:35:13 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,13 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= megaphone
+NAME			= MyAwsomePhoneBook
 CC				= g++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
+INCLUDES		= -I ./includes
 RM				= rm -rf
 
-SRC_FUNCTIONS	= megaphone
+SRC_FUNCTIONS	= 
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))
@@ -43,22 +44,22 @@ $(IFMAKE_DIR):
 					
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@echo "$(ORANGE)Loading... $< $(DEF_COLOR)"
-					@$(CC) $(FLAGS) -c $< -o $@
+					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling megaphone...$(DEF_COLOR)"
-					@$(CC) $(FLAGS) -o $(NAME) $(OBJ)
-					@echo "$(GREEN)megaphone ready.$(DEF_COLOR)"
+					@echo "$(GREY)compiling MyAwsomePhoneBook...$(DEF_COLOR)"
+					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
+					@echo "$(GREEN)MyAwsomePhoneBook ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)megaphone objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)MyAwsomePhoneBook objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
 					
 fclean:			clean
-					@echo "$(RED)megaphone removed.$(DEF_COLOR)"
+					@echo "$(RED)MyAwsomePhoneBook removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for megaphone$(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for MyAwsomePhoneBook $(DEF_COLOR)"
 
 .PHONY: all clean fclean re

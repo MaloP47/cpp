@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/14 12:38:48 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/15 13:39:24 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ ORANGE			= \033[38;5;214m
 NAME			= MyAwsomePhoneBook
 CC				= g++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
-INCLUDES		= -I ./includes
+INCLUDES		= -I ./includes/
 RM				= rm -rf
 
-SRC_FUNCTIONS	= main
+SRC_FUNCTIONS	= main PhoneBook.class
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))

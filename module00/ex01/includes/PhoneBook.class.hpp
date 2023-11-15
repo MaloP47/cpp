@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:44:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/14 11:12:12 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/15 13:54:24 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ class	PhoneBook {
 	
 	public:
 
-		PhoneBook(void);
-		~PhoneBook(void);
+		PhoneBook( void );
+		~PhoneBook( void );
+
+		bool	functions( std::string );
 
 	private:
 
-		Contact	_contact[8];
+		// Contact	_contact[8];
 };
 
 #endif

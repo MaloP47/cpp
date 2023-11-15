@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/15 13:55:35 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/15 19:36:13 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ bool	PhoneBook::functions( std::string user_input ) {
 	
 	std::string	functionnality[3] = { "ADD", "EXIT", "SEARCH" };
 	int			index = -1;
-	int			array_size = sizeof(functionnality) / sizeof(functionnality[0]);
+	int			array_size = sizeof( functionnality ) / sizeof( functionnality[0] );
 
 	for ( int i = 0; i < array_size; i++ ) {
-		if ( !functionnality[i].compare(user_input) ) {
+		if ( !functionnality[i].compare( user_input ) ) {
 			index = i;
 			break ;
 		}

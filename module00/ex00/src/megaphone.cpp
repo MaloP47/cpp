@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:19:17 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/14 09:45:00 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/15 19:38:36 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ std::string to_uppercase(std::string s)
 int	main(int ac, char **av)
 {
     if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     else
     {
         for (int i = 1; i < ac; i++)

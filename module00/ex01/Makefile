@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/15 13:39:24 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/15 19:50:25 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ ORANGE			= \033[38;5;214m
 NAME			= MyAwsomePhoneBook
 CC				= g++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
-INCLUDES		= -I ./includes/
+INCLUDES		= -I ./includes
 RM				= rm -rf
+VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 SRC_FUNCTIONS	= main PhoneBook.class
 OBJ_DIR			= obj/
@@ -62,4 +63,7 @@ fclean:			clean
 re:				fclean all
 					@echo "$(BLUE)Cleaned and rebuilt everything for MyAwsomePhoneBook $(DEF_COLOR)"
 
-.PHONY: all clean fclean re
+vcf:			$(NAME)
+					$(VALGRINDCF) ./$(NAME)
+
+.PHONY: all clean fclean re vcf

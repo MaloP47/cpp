@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:45:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/17 11:31:06 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/18 12:33:51 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ class   Contact {
 		~Contact(void);
 
 		static int		getNbInstContact( void );
+		
+		std::string 	getFirstname() const;
+		std::string 	getLastname() const;
+		std::string 	getNickname() const;
+		std::string 	getPhonenumber() const;
+		std::string 	getDarkestsecret() const;
 	
 	private:
 

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/15 19:36:13 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/18 20:57:45 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* *** constructor *** */
 
-PhoneBook::PhoneBook( void ) {
+PhoneBook::PhoneBook( void ) : _index(-1) {
 	return ;
 }
 
@@ -26,7 +26,7 @@ PhoneBook::~PhoneBook( void ) {
 
 /* *** public functions *** */
 
-bool	PhoneBook::functions( std::string user_input ) {
+bool	PhoneBook::functionalities( std::string user_input ) {
 	
 	std::string	functionnality[3] = { "ADD", "EXIT", "SEARCH" };
 	int			index = -1;
@@ -44,13 +44,13 @@ bool	PhoneBook::functions( std::string user_input ) {
 			std::cout << "ADD fn" << std::endl;
 			return ( true );
 		case 1:
-			std::cout << "EXIT BYE" << std::endl;
+			std::cout << EXIT_INPUT << std::endl;
 			return ( false );
 		case 2:
 			std::cout << "SEARCH fn" << std::endl;
 			return ( true );
 		default:
-			std::cout << "Valid commands : ADD SEARCH EXIT" << std::endl;
+			std::cout << INVALID_INPUT << std::endl;
 			return ( true );
 	}
 }

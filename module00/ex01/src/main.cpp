@@ -17,27 +17,13 @@
 
 #include "PhoneBook.class.hpp"
 
+#define CTRL_C " Program quit because of user : ctrl c!"
+#define CTRL_D "Program quit because of user : ctrl d!"
+
 void	signalHandler( int signum ) {
-	std::cout << " Program quit because of user : ctrl c!" << std::endl;
+	std::cout << CTRL_C << std::endl;
 	std::exit(signum);
 }
-
-/*int	main(void)
-{
-	bool		program_runs = true;
-	std::string user_input;
-	PhoneBook	phone_book;
-
-	std::signal(SIGINT, signalHandler);
-	for (; program_runs && std::getline( std::cin, user_input ) ;) {
-		if (std::cin.eof()) {
-			std::cout << EXIT_INPUT << std::endl;
-			break ;
-		}
-		program_runs = phone_book.functionalities( user_input );
-	}
-	return (0);
-}*/
 
 int	main(void)
 {
@@ -45,13 +31,10 @@ int	main(void)
 	std::string user_input;
 	PhoneBook	phone_book;
 
-	std::signal( SIGINT, signalHandler );
-	while ( program_runs && std::getline( std::cin, user_input ) ) {
-        if ( std::cin.eof() ) {
-			std::cout << "Program quit because of user : ctrl d!" << std::endl;
-			break ;
-        }
-        program_runs = phone_book.functionalities( user_input );
-    }
-    return 0;
+	std::signal(SIGINT, signalHandler);
+	for (; program_runs && std::getline( std::cin, user_input ) ;)
+		program_runs = phone_book.functionalities( user_input );
+	if (std::cin.eof())
+    	std::cout << CTRL_D << std::endl;
+	return (0);
 }

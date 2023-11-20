@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/20 23:09:13 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/20 23:12:04 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	PhoneBook::functionalities( std::string user_input ) {
 	switch (index)
 	{
 		case 0:
-			this->_addContact();
+			_addContact();
 			return ( true );
 		case 1:
 			std::cout << EXIT_INPUT << std::endl;

@@ -22,20 +22,19 @@
 
 void	signalHandler( int signum ) {
 	std::cout << CTRL_C << std::endl;
-	std::exit(signum);
+	std::exit( signum );
 }
 
-int	main(void)
+int	main ( void )
 {
 	bool		program_runs = true;
 	std::string user_input;
 	PhoneBook	phone_book;
 
-	std::signal(SIGINT, signalHandler);
+	std::signal( SIGINT, signalHandler );
 	for (; program_runs && std::getline( std::cin, user_input ) ;)
 		program_runs = phone_book.functionalities( user_input );
 	if (std::cin.eof())
     	std::cout << CTRL_D << std::endl;
-	return (0);
+	return ( 0 );
 }
-

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:51:49 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/18 20:27:56 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/20 22:25:14 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,6 @@ bool	Contact::_setFirstname( std::string& firstname ) {
 }
 
 bool	Contact::_setLasttname( std::string& lastname ) {
-
-	bool	firstletter = false;
-	
 	if ( lastname.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
 	else if (!_parse_name( lastname )) return ( std::cout << ERR_SETNAME_CHAR << std::endl ), false ;
 	for (std::string::iterator iter = lastname.begin(); iter != lastname.end(); ++iter)
@@ -121,7 +118,7 @@ bool	Contact::_parse_name( const std::string& user_input ) {
 }
 
 bool	Contact::_parse_number( const std::string& user_input ) {
-	if (!std::isdigit(user_input[0]) || user_input[0] != '+') return false ;
+	if (!std::isdigit(user_input[0]) && user_input[0] != '+') return false ;
 	for (std::string::const_iterator iter = user_input.begin() + 1; iter != user_input.end(); ++iter)
 		if (!std::isdigit( *iter )) return false ;
 	return true ;

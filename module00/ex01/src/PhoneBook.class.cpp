@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/20 22:51:49 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/20 23:09:13 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	PhoneBook::_addContact( void ) {
 	
 	std::string		user_input;
 
+	_index++;
 	if (_index > 7) _index = 0;
-	
 	while (!_contact[_index]._setFirstname( user_input )) {
 		std::cout << ADD_FN << std::endl;
 		std::getline( std::cin, user_input );
@@ -86,5 +86,4 @@ void	PhoneBook::_addContact( void ) {
 		std::cout << "Secret" << std::endl;
 		std::getline( std::cin, user_input );
 	}
-	_index++;	 
 }

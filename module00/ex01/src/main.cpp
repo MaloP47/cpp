@@ -32,6 +32,7 @@ int	main ( void )
 	PhoneBook	phone_book;
 
 	std::signal( SIGINT, signalHandler );
+	std::cout << "**WELCOME TO MY AWESOME PHONEBOOK**\nWhat would like to do?\n" << std::endl;
 	for (; program_runs && std::getline( std::cin, user_input ) ;)
 		program_runs = phone_book.functionalities( user_input );
 	if (std::cin.eof())

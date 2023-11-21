@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:51:49 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/20 22:25:14 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/21 17:15:17 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 /* *** constructor *** */
 
 Contact::Contact(void) {
-	
-	Contact::_nbInstContact += 1;
 	return ;
 }
 
@@ -28,11 +26,22 @@ Contact::~Contact(void) {
 
 /* *** public functions *** */
 
-/* GETTERS */
-
-int		Contact::getNbInstContact( void ) {
-	return Contact::_nbInstContact;
+bool	Contact::displayFullContact( int *index ) {
+	if (_contactEmpty()) return false ;
+	std::cout << DISPLAY << std::endl;
+	std::cout << "\n****" << std::endl;
+	std::cout << *index << "/8" << std::endl;
+	std::cout << "****" << std::endl;
+	std::cout << FIRST_N << getFirstname() << std::endl;
+	std::cout << LAST_N << getLastname() << std::endl;
+	std::cout << NICK_N << getNickname() << std::endl;
+	std::cout << PHONE_N << getPhonenumber() << std::endl;
+	std::cout << SECRET << getDarkestsecret() << std::endl;
+	std::cout << "****" << std::endl;
+	return true ;
 }
+
+/* GETTERS */
 
 std::string Contact::getFirstname( void ) const {
     return _firstname;
@@ -56,11 +65,11 @@ std::string Contact::getDarkestsecret( void ) const {
 
 /* SETTERS */
 
-bool	Contact::_setFirstname( std::string& firstname ) {
+bool	Contact::setFirstname( std::string& firstname ) {
 	
 	bool	firstletter = false;
 	
-	if ( firstname.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
+	if ( firstname.empty()) return false ;
 	else if (!_parse_name( firstname )) return ( std::cout << ERR_SETNAME_CHAR << std::endl ), false ;
 	for ( std::string::iterator iter = firstname.begin(); iter != firstname.end(); ++iter ) {
 		if ( std::isalpha( *iter ) && !firstletter ) {
@@ -74,8 +83,8 @@ bool	Contact::_setFirstname( std::string& firstname ) {
 	return ( std::cout << FIRST_N << _firstname << std::endl ) , true ;
 }
 
-bool	Contact::_setLasttname( std::string& lastname ) {
-	if ( lastname.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
+bool	Contact::setLastname( std::string& lastname ) {
+	if ( lastname.empty()) return false ;
 	else if (!_parse_name( lastname )) return ( std::cout << ERR_SETNAME_CHAR << std::endl ), false ;
 	for (std::string::iterator iter = lastname.begin(); iter != lastname.end(); ++iter)
 		*iter = std::toupper( *iter );
@@ -83,29 +92,40 @@ bool	Contact::_setLasttname( std::string& lastname ) {
 	return ( std::cout << FIRST_N << _lastname << std::endl ) , true ;
 }
 
-bool	Contact::_setNickname( const std::string& nickname ) {
-	if ( nickname.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
+bool	Contact::setNickname( const std::string& nickname ) {
+	if ( nickname.empty()) return false ;
 	else if (!_parse_name( nickname )) return ( std::cout << ERR_SETNAME_CHAR << std::endl ), false ;
 	_nickname = nickname;
 	return ( std::cout << NICK_N << _nickname << std::endl ) , true ;
 }
 
-bool	Contact::_setPhonenumber( const std::string& phonenumber ) {
-	if ( phonenumber.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
+bool	Contact::setPhonenumber( const std::string& phonenumber ) {
+	if ( phonenumber.empty()) return false ;
 	else if (!_parse_number( phonenumber )) return ( std::cout << ERR_NB << std::endl ), false ;
 	_phonenumber = phonenumber;
 	return ( std::cout << PHONE_N << _phonenumber << std::endl ) , true ;
 }
 
 
-bool	Contact::_setDarkestsecret( const std::string& darkestsecret ) {
-	if ( darkestsecret.empty()) return (std::cout << ERR_BLANK << std::endl ), false ;
+bool	Contact::setDarkestsecret( const std::string& darkestsecret ) {
+	if ( darkestsecret.empty()) return false ;
 	else if (!_parse_name( darkestsecret )) return ( std::cout << ERR_SETNAME_CHAR << std::endl ), false ;
 	_darkestsecret = darkestsecret;
 	return ( std::cout << SECRET << _darkestsecret << std::endl ) , true ;
 }
 
 /* *** private functions *** */
+
+bool	Contact::_contactEmpty( void ) {
+	if (_firstname.empty()
+		|| _lastname.empty()
+		|| _nickname.empty()
+		|| _phonenumber.empty()
+		|| _darkestsecret.empty()) {
+			return true ;
+		}
+	return false ;
+}
 
 bool	Contact::_is_valid_for_name( const char c ) {
 	return std::isalpha(c) || c == ' ' || c == '-';
@@ -123,7 +143,3 @@ bool	Contact::_parse_number( const std::string& user_input ) {
 		if (!std::isdigit( *iter )) return false ;
 	return true ;
 }
-
-/* *** static initilizations *** */
-
-int		Contact::_nbInstContact = 0;

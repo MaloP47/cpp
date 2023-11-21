@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/20 23:12:04 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/21 18:29:39 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	PhoneBook::functionalities( std::string user_input ) {
 			std::cout << EXIT_INPUT << std::endl;
 			return ( false );
 		case 2:
-			std::cout << "SEARCH fn" << std::endl;
+			_searchContact(&_index);
 			return ( true );
 		default:
 			std::cout << INVALID_INPUT << std::endl;
@@ -56,34 +56,63 @@ bool	PhoneBook::functionalities( std::string user_input ) {
 
 /* *** private functions *** */
 
-void	PhoneBook::_addContact( void ) {
+bool	PhoneBook::_addContact( void ) {
 	
 	std::string		user_input;
 
 	_index++;
 	if (_index > 7) _index = 0;
-	while (!_contact[_index]._setFirstname( user_input )) {
+	std::cout << "**** ADD mode : ****\n" << std::endl;
+	std::cout << ERR_BLANK << std::endl;
+	while (!_contact[_index].setFirstname( user_input )) {
+		if (std::cin.eof()) {
+			return false ;
+		}
 		std::cout << ADD_FN << std::endl;
 		std::getline( std::cin, user_input );
 	}
 	user_input.clear();
-	while (!_contact[_index]._setLasttname( user_input )) {
-		std::cout << "last name" << std::endl;
+	while (!_contact[_index].setLastname( user_input )) {
+		if (std::cin.eof()) {
+			return false ;
+		}
+		std::cout << ADD_LN << std::endl;
 		std::getline( std::cin, user_input);
 	}
 	user_input.clear();
-	while (!_contact[_index]._setNickname( user_input )) {
-		std::cout << "nickname" << std::endl;
+	while (!_contact[_index].setNickname( user_input )) {
+		if (std::cin.eof()) {
+			return false ;
+		}
+		std::cout << ADD_NN << std::endl;
 		std::getline( std::cin, user_input );
 	}
 	user_input.clear();
-	while (!_contact[_index]._setPhonenumber( user_input )) {
-		std::cout << "phonenumber" << std::endl;
+	while (!_contact[_index].setPhonenumber( user_input )) {
+		if (std::cin.eof()) {
+			return false ;
+		}
+		std::cout << ADD_PN << std::endl;
 		std::getline( std::cin, user_input );
 	}
 	user_input.clear();
-	while (!_contact[_index]._setDarkestsecret( user_input )) {
-		std::cout << "Secret" << std::endl;
+	while (!_contact[_index].setDarkestsecret( user_input )) {
+		if (std::cin.eof()) {
+			return false ;
+		}
+		std::cout << ADD_DS << std::endl;
 		std::getline( std::cin, user_input );
 	}
+	std::cout << "**** Contact saved ****\n" << std::endl;
+	return true ;
+}
+
+void	PhoneBook::_searchContact( int *nb ) {
+
+	std::cout << "**** SEARCH mode : ****\n" << std::endl;
+	for (int idx = _index; idx > 0; --idx)
+		
+	if (_index < 1)
+		std::cout << "Phone book is empty, please add a contact first!" << std::endl;
+	if (!_contact[_index].displayFullContact(nb)) std::cout << "error" << std::endl;
 }

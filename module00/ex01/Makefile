@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/20 22:58:25 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/21 17:41:33 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= MyAwsomePhoneBook
+NAME			= MyAwesomePhoneBook
 CC				= g++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:45:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/19 14:09:05 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/21 17:34:19 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <iostream>
 # include <cctype>
 
-# define ERR_BLANK "Field can't be blank"
 # define ERR_SETNAME_CHAR "Please use only alphabetical characters, - or space"
 # define ERR_NB "Please use only digits or +"
 # define FIRST_N "First name : "
@@ -26,6 +25,8 @@
 # define PHONE_N "Phone number : "
 # define SECRET "Secret : "
 
+# define DISPLAY "Here are the contact's details you selected : "
+
 class   Contact {
 	
 	public:
@@ -33,21 +34,19 @@ class   Contact {
 		Contact(void);
 		~Contact(void);
 		
+		bool			displayFullContact( int *index );
+		
 		std::string 	getFirstname() const;
 		std::string 	getLastname() const;
 		std::string 	getNickname() const;
 		std::string 	getPhonenumber() const;
 		std::string 	getDarkestsecret() const;
-
-		void			_setContact_blank( void );
 		
-		bool			_setFirstname( std::string& firstname );
-		bool			_setLasttname( std::string& lastname );
-		bool			_setNickname( const std::string& nickname );
-		bool			_setPhonenumber( const std::string& phonenumber );
-		bool			_setDarkestsecret( const std::string& darkestsecret );
-
-		static int		getNbInstContact( void );
+		bool			setFirstname( std::string& firstname );
+		bool			setLastname( std::string& lastname );
+		bool			setNickname( const std::string& nickname );
+		bool			setPhonenumber( const std::string& phonenumber );
+		bool			setDarkestsecret( const std::string& darkestsecret );
 	
 	private:
 
@@ -60,8 +59,8 @@ class   Contact {
 		bool			_is_valid_for_name( const char c);
 		bool			_parse_name( const std::string& user_input );
 		bool			_parse_number( const std::string& user_input );
+		bool			_contactEmpty( void );
 
-		static int		_nbInstContact;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/21 18:29:39 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:28:25 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* *** constructor *** */
 
-PhoneBook::PhoneBook( void ) : _index( 0 ) {
+PhoneBook::PhoneBook( void ) : _index( -1 ) {
 	return ;
 }
 
@@ -46,7 +46,8 @@ bool	PhoneBook::functionalities( std::string user_input ) {
 			std::cout << EXIT_INPUT << std::endl;
 			return ( false );
 		case 2:
-			_searchContact(&_index);
+			// _searchContact(&_index);
+			_displaySnipContact( _index );
 			return ( true );
 		default:
 			std::cout << INVALID_INPUT << std::endl;
@@ -107,12 +108,21 @@ bool	PhoneBook::_addContact( void ) {
 	return true ;
 }
 
-void	PhoneBook::_searchContact( int *nb ) {
+void	PhoneBook::_displaySnipContact( int nb ) {
+	
+	std::cout << "|" << std::setfill('*') << std::setw(10) << nb + 1	;
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _contact[nb].getFirstname();
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _contact[nb].getLastname();
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _contact[nb].getNickname();
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _contact[nb].getPhonenumber();
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _contact[nb].getDarkestsecret() << "|" << std::endl;
+}
+
+/*bool	PhoneBook::_searchContact( int *nb ) {
 
 	std::cout << "**** SEARCH mode : ****\n" << std::endl;
-	for (int idx = _index; idx > 0; --idx)
 		
-	if (_index < 1)
-		std::cout << "Phone book is empty, please add a contact first!" << std::endl;
+	if (_index < 0) return (std::cout << "Phone book is empty, please add a contact first!" << std::endl) false ;
+	for (int idx = _index; idx > 0; --idx)
 	if (!_contact[_index].displayFullContact(nb)) std::cout << "error" << std::endl;
-}
+}*/

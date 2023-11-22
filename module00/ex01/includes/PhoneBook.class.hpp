@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:44:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/21 18:27:28 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:30:13 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <iostream>
 # include <sstream>
+# include <iomanip>
 
 # include "Contact.class.hpp"
 
@@ -46,7 +47,9 @@ class	PhoneBook {
 		Contact		_contact[8];
 
 		bool		_addContact( void );
-		void		_searchContact( int *_index );
+		bool		_trimLength( const std::string& detail);
+		void		_displaySnipContact( int index );
+		bool		_searchContact( int *_index );
 };
 
 #endif

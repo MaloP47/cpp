@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:51:49 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/21 17:15:17 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/22 22:13:43 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	Contact::displayFullContact( int *index ) {
 	if (_contactEmpty()) return false ;
 	std::cout << DISPLAY << std::endl;
 	std::cout << "\n****" << std::endl;
-	std::cout << *index << "/8" << std::endl;
+	std::cout << *index + 1 << "/8" << std::endl;
 	std::cout << "****" << std::endl;
 	std::cout << FIRST_N << getFirstname() << std::endl;
 	std::cout << LAST_N << getLastname() << std::endl;

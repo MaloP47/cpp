@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/23 10:25:41 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:24:19 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ bool	PhoneBook::functionalities( std::string user_input ) {
 			break ;
 		}
 	}
-	switch (index)
-	{
+	switch (index) {
 		case 0:
 			_addContact();
 			return ( true );
@@ -131,7 +130,18 @@ void	PhoneBook::_indexMenu ( void ) {
 	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
 }
 
+bool	PhoneBook::_isIndexValid( const std::string& input ) {
+	
+		std::stringstream	atoi_str( input );
+		int					int_compare;
+
+		atoi_str >> int_compare;
+		if (int_compare )
+}
+
 bool	PhoneBook::_searchContact( void ) {
+
+	std::string			input;
 
 	std::cout << "**** SEARCH mode : ****\n" << std::endl;
 		
@@ -139,5 +149,6 @@ bool	PhoneBook::_searchContact( void ) {
 	_indexMenu();
 	for (int idx = 0; idx <= 7 && (this -> _displaySnipContact(idx) == true); ++idx);
 	std::cout << "|" << std::setfill('-') << std::setw(44) << "|\n" << std::endl;
+
 	return true ;
 }

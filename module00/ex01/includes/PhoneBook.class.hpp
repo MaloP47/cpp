@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:44:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/23 10:06:30 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:15:50 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class	PhoneBook {
 		bool			_addContact( void );
 		std::string		_trimLength( const std::string& detail);
 		void			_indexMenu( void );
+		bool			_isIndexValid( const std::string& detail );
 		bool			_displaySnipContact( int index );
 		bool			_searchContact( void );
 };

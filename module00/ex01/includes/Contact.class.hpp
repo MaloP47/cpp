@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:45:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/21 17:34:19 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/23 10:08:40 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class   Contact {
 		bool			setNickname( const std::string& nickname );
 		bool			setPhonenumber( const std::string& phonenumber );
 		bool			setDarkestsecret( const std::string& darkestsecret );
+		bool			contactEmpty( void );
 	
 	private:
 
@@ -59,7 +60,6 @@ class   Contact {
 		bool			_is_valid_for_name( const char c);
 		bool			_parse_name( const std::string& user_input );
 		bool			_parse_number( const std::string& user_input );
-		bool			_contactEmpty( void );
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/22 22:27:58 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/23 10:25:41 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ bool	PhoneBook::_addContact( void ) {
 	if (_index > 7) _index = 0;
 	std::cout << "**** ADD mode : ****\n" << std::endl;
 	std::cout << ERR_BLANK << std::endl;
+	std::cout << "New contact : " << _index + 1 << "/8\n" << std::endl;
 	while (!_contact[_index].setFirstname( user_input )) {
 		if (std::cin.eof()) {
 			return false ;
@@ -112,14 +113,22 @@ std::string	PhoneBook::_trimLength( const std::string& detail) {
 	return detail ;
 }
 
-void	PhoneBook::_displaySnipContact( int nb ) {
-	
+bool	PhoneBook::_displaySnipContact( int nb ) {
+	if (_contact[nb].contactEmpty()) return false ;
 	std::cout << "|" << std::setfill('*') << std::setw(10) << nb + 1	;
 	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getFirstname());
 	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getLastname());
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getNickname());
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getPhonenumber());
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getDarkestsecret()) << "|" << std::endl;
+	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getNickname()) << "|" << std::endl;
+	return true ;
+}
+
+void	PhoneBook::_indexMenu ( void ) {
+	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
+	std::cout << "|" << std::setfill('*') << std::setw(10) << "INDEX";
+	std::cout << "|" << std::setfill('*') << std::setw(10) << "FIRSTNAME";
+	std::cout << "|" << std::setfill('*') << std::setw(10) << "LASTNAME";
+	std::cout << "|" << std::setfill('*') << std::setw(10) << "NICKNAME" << "|" << std::endl;;
+	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
 }
 
 bool	PhoneBook::_searchContact( void ) {
@@ -127,8 +136,8 @@ bool	PhoneBook::_searchContact( void ) {
 	std::cout << "**** SEARCH mode : ****\n" << std::endl;
 		
 	if (_index == -1) return (std::cout << "Phone book is empty, please add a contact first!" << std::endl), false ;
-	for (int idx = _index; idx >= 0; idx--)
-		_displaySnipContact(idx);
+	_indexMenu();
+	for (int idx = 0; idx <= 7 && (this -> _displaySnipContact(idx) == true); ++idx);
+	std::cout << "|" << std::setfill('-') << std::setw(44) << "|\n" << std::endl;
 	return true ;
 }
-	// if (!_contact[_index].displayFullContact(nb)) std::cout << "error" << std::endl;

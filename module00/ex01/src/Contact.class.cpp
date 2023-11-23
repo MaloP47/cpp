@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:51:49 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/22 22:13:43 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/23 10:10:12 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Contact::~Contact(void) {
 /* *** public functions *** */
 
 bool	Contact::displayFullContact( int *index ) {
-	if (_contactEmpty()) return false ;
+	if (contactEmpty()) return false ;
 	std::cout << DISPLAY << std::endl;
 	std::cout << "\n****" << std::endl;
 	std::cout << *index + 1 << "/8" << std::endl;
@@ -116,7 +116,7 @@ bool	Contact::setDarkestsecret( const std::string& darkestsecret ) {
 
 /* *** private functions *** */
 
-bool	Contact::_contactEmpty( void ) {
+bool	Contact::contactEmpty( void ) {
 	if (_firstname.empty()
 		|| _lastname.empty()
 		|| _nickname.empty()

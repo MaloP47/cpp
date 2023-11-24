@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/23 13:24:19 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/24 13:39:07 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,25 +130,42 @@ void	PhoneBook::_indexMenu ( void ) {
 	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
 }
 
-bool	PhoneBook::_isIndexValid( const std::string& input ) {
+int	PhoneBook::_isIndexValid( const std::string& input ) {
 	
 		std::stringstream	atoi_str( input );
 		int					int_compare;
 
 		atoi_str >> int_compare;
-		if (int_compare )
+		if (int_compare > 0 && int_compare <= _index + 1) return int_compare;
+		return -1 ;
 }
 
 bool	PhoneBook::_searchContact( void ) {
 
 	std::string			input;
+	int					index_valid;
+	int					util;
 
 	std::cout << "**** SEARCH mode : ****\n" << std::endl;
 		
 	if (_index == -1) return (std::cout << "Phone book is empty, please add a contact first!" << std::endl), false ;
 	_indexMenu();
 	for (int idx = 0; idx <= 7 && (this -> _displaySnipContact(idx) == true); ++idx);
-	std::cout << "|" << std::setfill('-') << std::setw(44) << "|\n" << std::endl;
-
+	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl;
+	std::cout << "Pick an index to show full contact's details : " << std::endl;	
+	while (_isIndexValid( input ) == -1) {
+		if (std::cin.eof()) {
+			input.clear();
+			return false ;
+		}
+		std::getline( std::cin, input );
+		index_valid = _isIndexValid( input );
+		if ( index_valid > 0) {
+			util = index_valid - 1;
+			_contact[index_valid - 1].displayFullContact( &util );
+		}
+		else
+			std::cout << "The index you picked is invalid, try again." << std::endl;
+	}
 	return true ;
 }

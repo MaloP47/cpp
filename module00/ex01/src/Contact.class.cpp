@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:51:49 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/23 13:19:23 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/24 14:16:03 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ bool	Contact::setLastname( std::string& lastname ) {
 	for (std::string::iterator iter = lastname.begin(); iter != lastname.end(); ++iter)
 		*iter = std::toupper( *iter );
 	_lastname = lastname;
-	return ( std::cout << FIRST_N << _lastname << std::endl ) , true ;
+	return ( std::cout << LAST_N << _lastname << std::endl ) , true ;
 }
 
 bool	Contact::setNickname( const std::string& nickname ) {

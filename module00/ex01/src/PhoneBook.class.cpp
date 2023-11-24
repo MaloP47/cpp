@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/24 13:39:07 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/24 14:16:58 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	PhoneBook::_indexMenu ( void ) {
 int	PhoneBook::_isIndexValid( const std::string& input ) {
 	
 		std::stringstream	atoi_str( input );
-		int					int_compare;
+		int					int_compare = -42;
 
 		atoi_str >> int_compare;
 		if (int_compare > 0 && int_compare <= _index + 1) return int_compare;

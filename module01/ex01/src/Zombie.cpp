@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:39:34 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/25 15:12:43 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/25 16:01:52 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 /* *** constructors *** */
 
-Zombie::Zombie( std::string name ) : _name( name ){
+Zombie::Zombie( void ) {
+	return ;
+}
+
+Zombie::Zombie( std::string name ) : _name( name ) {
 	return ;	
 }
 

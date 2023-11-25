@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/24 14:32:40 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/25 12:50:31 by mpeulet          ###   ########.fr        #
+#    Created: 2023/11/25 15:18:16 by mpeulet           #+#    #+#              #
+#    Updated: 2023/11/25 15:27:04 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,14 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= BraiiiiiiinnnzzzZ
+NAME			= Moar_brainz!
 CC				= g++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-SRC_FUNCTIONS	= main newZombie randomChump Zombie
+SRC_FUNCTIONS	= main zombieHorde Zombie
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))
@@ -48,20 +48,20 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling BraiiiiiiinnnzzzZ...$(DEF_COLOR)"
+					@echo "$(GREY)Compiling Moar_brainz!...$(DEF_COLOR)"
 					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
-					@echo "$(GREEN)BraiiiiiiinnnzzzZ ready.$(DEF_COLOR)"
+					@echo "$(GREEN)Moar_brainz! ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)BraiiiiiiinnnzzzZ objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)Moar_brainz! objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
 					
 fclean:			clean
-					@echo "$(RED)BraiiiiiiinnnzzzZ removed.$(DEF_COLOR)"
+					@echo "$(RED)Moar_brainz! removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for BraiiiiiiinnnzzzZ $(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for Moar_brainz! $(DEF_COLOR)"
 
 vcf:			$(NAME)
 					$(VALGRINDCF) ./$(NAME)

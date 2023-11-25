@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/24 14:16:58 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/25 15:39:05 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,19 +114,19 @@ std::string	PhoneBook::_trimLength( const std::string& detail) {
 
 bool	PhoneBook::_displaySnipContact( int nb ) {
 	if (_contact[nb].contactEmpty()) return false ;
-	std::cout << "|" << std::setfill('*') << std::setw(10) << nb + 1	;
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getFirstname());
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getLastname());
-	std::cout << "|" << std::setfill('*') << std::setw(10) << _trimLength(_contact[nb].getNickname()) << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << nb + 1	;
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << _trimLength(_contact[nb].getFirstname());
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << _trimLength(_contact[nb].getLastname());
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << _trimLength(_contact[nb].getNickname()) << "|" << std::endl;
 	return true ;
 }
 
 void	PhoneBook::_indexMenu ( void ) {
 	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
-	std::cout << "|" << std::setfill('*') << std::setw(10) << "INDEX";
-	std::cout << "|" << std::setfill('*') << std::setw(10) << "FIRSTNAME";
-	std::cout << "|" << std::setfill('*') << std::setw(10) << "LASTNAME";
-	std::cout << "|" << std::setfill('*') << std::setw(10) << "NICKNAME" << "|" << std::endl;;
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << "INDEX";
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << "FIRSTNAME";
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << "LASTNAME";
+	std::cout << "|" << std::setfill(' ') << std::setw(10) << "NICKNAME" << "|" << std::endl;;
 	std::cout << "|" << std::setfill('-') << std::setw(44) << "|" << std::endl; 
 }
 

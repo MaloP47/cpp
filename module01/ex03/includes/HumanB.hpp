@@ -6,8 +6,11 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:04:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/25 20:04:57 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/25 20:22:56 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-aa
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
+#endif

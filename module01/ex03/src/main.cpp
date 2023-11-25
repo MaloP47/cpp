@@ -6,8 +6,14 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:56:02 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/25 19:56:11 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/25 20:24:50 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-aa
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
+
+int	main( void ) {
+	return 0;
+}

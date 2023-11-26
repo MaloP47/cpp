@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:02:42 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/26 15:16:00 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/26 16:01:27 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 /* *** constructor *** */
 
 HumanB::HumanB( const std::string& name ) : _name( name ) {
-	_weapon = new Weapon("bare hands");
 	return ;
 }
 
 /* *** destructor *** */
 
 HumanB::~HumanB( void ) {
-	delete _weapon;
 	return ;
 }
 
 /* *** public functions *** */
 
 void	HumanB::attack( void ) const {
-	std::cout << getName() << ATTACK << _weapon->getType() << std::endl;
+	if (_weapon == NULL) {
+		std::cout << getName() << ATTACK << HANDS << std::endl;
+	}
+	else 
+		std::cout << getName() << ATTACK << _weapon->getType() << std::endl;
 	return ;
 }
 
@@ -42,10 +44,10 @@ const std::string	&HumanB::getName( void ) const {
 /* SETTERS */
 
 void	HumanB::setName( const std::string& name) {
-	_name =name;
+	_name = name;
 }
 
-void	HumanB::setWeapon( Weapon& newWeapon ) {
+void	HumanB::setWeapon( Weapon const &newWeapon ) {
 	_weapon = &newWeapon;
 }
 

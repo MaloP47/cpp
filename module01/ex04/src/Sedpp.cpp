@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Sedpp.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 20:03:53 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/26 16:32:53 by mpeulet          ###   ########.fr       */
+/*   Created: 2023/11/26 16:34:15 by mpeulet           #+#    #+#             */
+/*   Updated: 2023/11/26 18:01:47 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#include "Sedpp.hpp"
 
-# include <string>
+/* *** constructor *** */
 
-class	Weapon {
+Sedpp::Sedpp( const std::ifstream& ifs, const std::ofstream& ofs ) : _ifs( ifs ), _ofs( ofs ) {
+}
 
-	public:
+/* *** destructor *** */
 
-		Weapon( const std::string type );
-		~Weapon( void );
+Sedpp::~Sedpp( void ) {
+	if (_ifs.is_open()) {
+		_ifs.close();
+	if (_ofs.is_open()) {
+		_ofs.close();
+	}
+	}
+}
 
-		const std::string		&getType() const;
-		void					setType( const std::string& type );
+/* *** public functions *** */
 
-		private:
+/* GETTERS */
 
-		std::string		_type;
-};
+/* SETTERS */
 
-#endif
+/* *** private functions *** */

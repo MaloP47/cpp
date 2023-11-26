@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:04:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/26 15:16:16 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/26 15:52:47 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "Weapon.hpp"
 
 # define ATTACK " attacks with their "
+# define HANDS "bare hands"
 
 class HumanB {
 
@@ -27,14 +28,14 @@ class HumanB {
 
 		const std::string		&getName() const;
 		void					setName( const std::string& name );
-		void					setWeapon( Weapon& newWeapon);
+		void					setWeapon( Weapon const &newWeapon );
 
 		void					attack( void ) const;
 
 	private:
 
 		std::string		_name;
-		Weapon			*_weapon;
+		Weapon const	*_weapon;
 	
 };
 

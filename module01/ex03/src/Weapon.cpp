@@ -6,13 +6,13 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:01:33 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/25 21:04:06 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/26 12:46:44 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-/* *** constructors *** */
+/* *** constructor *** */
 
 Weapon::Weapon( std::string type ) : _type( type ) {
 	return ;
@@ -28,7 +28,7 @@ Weapon::~Weapon( void ) {
 
 /* GETTERS */
 
-std::string	Weapon::getType( void ) const {
+const std::string	&Weapon::getType( void ) const {
 	return _type;
 }
 

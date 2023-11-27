@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:34:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/27 21:32:33 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/27 22:17:42 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ Sedpp::~Sedpp( void ) {
 void	Sedpp::replace( const std::string& toReplace, const std::string& replaceBy ) {
 
 	std::string	buffer;
+
+	/*if ((!_ifs.peek()) != std::ifstream::traits_type::eof()) {
+        std::cerr << "Input file is empty" << std::endl;
+        return; 
+    }*/
 
 	if (std::getline(_ifs, buffer)) {
 		do {

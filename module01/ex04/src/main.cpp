@@ -6,12 +6,11 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:10:18 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/27 14:32:47 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/27 19:24:46 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sedpp.hpp"
-#include <iostream>
 
 # define EXAMPLE "\033[0;91mParameters must be 3 : <filename> <string to be replaced> <string to replace by>\033[0;39m"
 # define EMPTY "Arguments strings must not be empty"
@@ -30,9 +29,9 @@ int	main(int ac, char **av) {
 
 	try {
 		Sedpp	sed( infile, outfile);
+		sed.replace( std::string( av[2] ), std::string( av[3] ));
 	} catch (const std::runtime_error& err) {
 		return RUNTIME_ERR, 1 ;
 	}
-	
 	return 0;
 }

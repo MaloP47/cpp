@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 16:08:37 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/26 17:26:23 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/28 15:39:13 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ $(NAME):		$(OBJ)
 clean:
 					@echo "$(MAGENTA)Sed_is_for_losers! objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
+					@$(RM) *.replace
 					
 fclean:			clean
 					@echo "$(RED)Sed_is_for_losers! removed.$(DEF_COLOR)"

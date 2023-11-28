@@ -6,13 +6,13 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:10:18 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/27 19:24:46 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/28 16:42:01 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sedpp.hpp"
 
-# define EXAMPLE "\033[0;91mParameters must be 3 : <filename> <string to be replaced> <string to replace by>\033[0;39m"
+# define EXAMPLE "\033[5;91mParameters must be 3 : <filename> <string to be replaced> <string to replace by>\033[0;39m"
 # define EMPTY "Arguments strings must not be empty"
 
 # define INVALID_EMPTY std::cout << EMPTY << std::endl
@@ -28,8 +28,12 @@ int	main(int ac, char **av) {
 	std::string outfile = infile + ".replace";
 
 	try {
-		Sedpp	sed( infile, outfile);
-		sed.replace( std::string( av[2] ), std::string( av[3] ));
+		Sedpp	sed( infile );
+		try {
+			sed.replace( std::string( av[2] ), std::string( av[3] ), outfile );
+		} catch (const std::runtime_error& err) {
+			return RUNTIME_ERR, 1 ;
+		}
 	} catch (const std::runtime_error& err) {
 		return RUNTIME_ERR, 1 ;
 	}

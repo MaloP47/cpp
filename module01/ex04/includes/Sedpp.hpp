@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:35:04 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/27 21:23:55 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/28 16:42:38 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@
 
 # define IN_ERR "Failed to open input file: "
 # define OUT_ERR "Failed to open output file: "
+# define FILE_EMPTY "Input file is empty"
 
 class	Sedpp {
 
 	public:
 
-		Sedpp( const std::string& inputFile, const std::string& outpoutFile );
+		Sedpp( const std::string& inputFile );
 		~Sedpp( void );
 		
-		void	replace( const std::string& toReplace, const std::string& replaceBy );
+		void	replace( const std::string& toReplace, const std::string& replaceBy, const std::string& outpoutFile );
 
 	private:
 

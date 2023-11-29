@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 16:08:37 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/28 16:47:35 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/29 12:04:07 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= Harl_2.0
-CC				= g++
+CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf

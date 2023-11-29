@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 14:32:40 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/25 12:50:31 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/29 12:04:51 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= BraiiiiiiinnnzzzZ
-CC				= g++
+CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf

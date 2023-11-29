@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/13 16:31:09 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/29 12:05:02 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= megaphone
-CC				= g++
+CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 RM				= rm -rf
 

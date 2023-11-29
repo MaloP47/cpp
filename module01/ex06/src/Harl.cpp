@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:50:11 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/28 18:51:44 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/11/29 11:55:19 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,10 @@ void    Harl::complainLevels( std::string level ) {
 	switch ( index ) {
 		case 0:
 			(this->*ptr[0])();
-			/* fallthrough */
 		case 1:
 			(this->*ptr[1])();
-			/* fallthrough */
 		case 2:
 			(this->*ptr[2])();
-			/* fallthrough */
 		case 3:
 			(this->*ptr[3])();
 			break ;

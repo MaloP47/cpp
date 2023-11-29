@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 15:18:13 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/21 17:41:33 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/11/29 12:05:11 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= MyAwesomePhoneBook
-CC				= g++
+CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf

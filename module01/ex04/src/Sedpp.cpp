@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:34:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/28 16:41:28 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/02 13:27:40 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 Sedpp::Sedpp( const std::string& inputFile ) : _ifs( inputFile.c_str() ) {
 	if (!_ifs)
 		throw std::runtime_error(IN_ERR + inputFile);
-	/*_ofs.open(outpoutFile.c_str());
-	if (!_ofs)
-		throw std::runtime_error(OUT_ERR + outpoutFile);*/
 }
 
 /* *** destructor *** */

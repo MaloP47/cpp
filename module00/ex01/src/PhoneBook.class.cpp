@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:52:29 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/25 15:39:05 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/11 19:45:34 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* *** constructor *** */
 
-PhoneBook::PhoneBook( void ) : _index( -1 ) {
+PhoneBook::PhoneBook( void ) : _index( -1 ), _nbSavedContacts( 0 ) {
 	return ;
 }
 
@@ -59,6 +59,7 @@ bool	PhoneBook::_addContact( void ) {
 	
 	std::string		user_input;
 
+	if (_nbSavedContacts < 8) _nbSavedContacts++;
 	_index++;
 	if (_index > 7) _index = 0;
 	std::cout << "**** ADD mode : ****\n" << std::endl;
@@ -136,7 +137,7 @@ int	PhoneBook::_isIndexValid( const std::string& input ) {
 		int					int_compare = -42;
 
 		atoi_str >> int_compare;
-		if (int_compare > 0 && int_compare <= _index + 1) return int_compare;
+		if (int_compare > 0 && int_compare <= _nbSavedContacts) return int_compare;
 		return -1 ;
 }
 

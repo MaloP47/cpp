@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:44:48 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/24 12:54:38 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/11 19:42:25 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class	PhoneBook {
 	private:
 
 		int				_index;
+		int				_nbSavedContacts;
 		Contact			_contact[8];
 
 		bool			_addContact( void );

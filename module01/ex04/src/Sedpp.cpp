@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:34:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/02 13:29:10 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/14 17:34:09 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,9 @@ void	Sedpp::replace( const std::string& toReplace, const std::string& replaceBy,
 	std::string	buffer;
 	bool		isEmpty = true;
 
-	while (std::getline( _ifs, buffer )) {
-		if (buffer.empty()) {
-			isEmpty = false;
-			break ;
-		}
-	} 
+	if (std::getline(_ifs, buffer)) {
+		isEmpty = false;
+	}
 	if (isEmpty) throw std::runtime_error(FILE_EMPTY);
 	_ofs.open(outpoutFile.c_str());
 	if (!_ofs)

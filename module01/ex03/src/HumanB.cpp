@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:02:42 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/11/26 16:01:27 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:51:22 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* *** constructor *** */
 
-HumanB::HumanB( const std::string& name ) : _name( name ) {
+HumanB::HumanB( const std::string& name ) : _name( name ), _weapon(0) {
 	return ;
 }
 
@@ -27,7 +27,7 @@ HumanB::~HumanB( void ) {
 /* *** public functions *** */
 
 void	HumanB::attack( void ) const {
-	if (_weapon == NULL) {
+	if (!_weapon) {
 		std::cout << getName() << ATTACK << HANDS << std::endl;
 	}
 	else 

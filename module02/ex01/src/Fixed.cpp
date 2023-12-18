@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:06:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/16 15:36:13 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:41:47 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ Fixed::Fixed( void ) : _fixed( 0 ) {
 	std::cout << DEFAULT ;
 }
 
-Fixed::Fixed( const int to_float ) {
-	
+Fixed::Fixed( const int int_conv ) : _fixed( int_conv << _bits ) {
+	std::cout << INT_CONSTRUCTOR ;
 }
 
-Fixed::Fixed( const float to_fixed_comma ) {
-	
+Fixed::Fixed( const float float_conv ) : _fixed( roundf( float_conv * ( 1 << _bits ) )) {
+	std::cout << FLOAT_CONSTRUCTOR ;
 }
 
 /* *** copy constructor *** */
@@ -37,6 +37,8 @@ Fixed::Fixed( Fixed const & cpy ) {
 
 Fixed &	Fixed::operator=( Fixed const & rhs ) {
 	std::cout << COPY_OPERATOR ;
+	if (this == &rhs)
+		return *this ;
 	_fixed = rhs.getRawBits() ;
 	return *this ;
 }
@@ -62,12 +64,12 @@ void	Fixed::setRawBits( int const raw ) {
 	_fixed = raw ;
 }
 
-float	toFloat( void ) const {
-	
+float	Fixed::toFloat( void ) const {
+	return static_cast<float>(_fixed) / ( 1 << _bits ) ;
 }
 
-int	toInt( void ) const {
-	
+int	Fixed::toInt( void ) const {
+	return _fixed >> _bits ;
 }
 
 /* *** private function *** */
@@ -76,7 +78,7 @@ int	toInt( void ) const {
 
 /* *** other *** */
 
-std::ostream &	operator<<( std::ostream o, Fixed const & rhs ) {
-	o << rhs.getRawBits() ;
+std::ostream &	operator<<( std::ostream & o, Fixed const & rhs ) {
+	o << rhs.toFloat() ;
 	return o;
 }

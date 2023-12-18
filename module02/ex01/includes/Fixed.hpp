@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:49:59 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/16 15:26:33 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:33:36 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 # define DEFAULT "Default constructor called\n"
 # define COPY "Copy constructor called\n"
-# define RAWBITS "getRawBits member function called\n"
+# define RAWBITS "\033[0;93mgetRawBits member function called\n\033[0;39m"
 # define DESTRUCTOR "Destructor called\n"
 # define COPY_OPERATOR "Copy assignment operator called\n"
+# define INT_CONSTRUCTOR "Int constructor called\n"
+# define FLOAT_CONSTRUCTOR "Float constructor called\n"
 
 
 class	Fixed {
 
 	public:
 
-		Fixed( void );							//Coplien
-		Fixed( Fixed const & cpy );				//Coplien
+		Fixed( void );							//Coplien default constructor
+		Fixed( Fixed const & cpy );				//Coplien copy constructor
 
-		Fixed( const int to_float );
-		Fixed( const float to_fixed_comma );
+		Fixed( const int int_conv );
+		Fixed( const float float_conv );
 
-		~Fixed( void );							//Coplien
+		~Fixed( void );							//Coplien destructor
 
-		Fixed &	operator=( Fixed const & rhs );	//Coplien
+		Fixed &	operator=( Fixed const & rhs );	//Coplien copy assignement operator
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
@@ -49,6 +52,6 @@ class	Fixed {
 
 };
 
-std::ostream & operator<<( std::ostream o, Fixed const & rhs );
+std::ostream & operator<<( std::ostream & o, Fixed const & rhs );
 
 #endif /* *** FIXED_HPP *** */

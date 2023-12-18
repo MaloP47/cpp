@@ -6,11 +6,12 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:29:27 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/16 15:10:11 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:42:30 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Fixed.hpp"
 
 int	main( void ) {
 

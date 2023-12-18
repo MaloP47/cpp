@@ -1,55 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 14:06:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/18 12:31:06 by mpeulet          ###   ########.fr       */
+/*   Created: 2023/12/18 15:26:04 by mpeulet           #+#    #+#             */
+/*   Updated: 2023/12/18 16:22:45 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-/* *** constructor *** */
+/* *** constructors *** */
 
-Fixed::Fixed( void ) : _fixed( 0 ) {
-	std::cout << DEFAULT ;
-}
+ClapTrap::ClapTrap( const std::string & name ) : _name( name ),
+													_HitPoint( 10 ),
+													_EnergyPoints( 10 ),
+													_AttackDamage( 0 ) {
+														
+													}
 
 /* *** copy constructor *** */
-
-Fixed::Fixed( Fixed const & cpy ) {
-	std::cout << COPY;
-	*this = cpy ;
-}
-
 /* *** operator = *** */
-
-Fixed &	Fixed::operator=( Fixed const & rhs ) {
-	std::cout << COPY_OPERATOR ;
-	if (this == &rhs)
-		return *this ;
-	_fixed = rhs.getRawBits() ;
-	return *this ;
-}
-
 /* *** destructor *** */
 
-Fixed::~Fixed( void ) {
-	std::cout << DESTRUCTOR ;
+ClapTrap::~ClapTrap( void ) {
+	std::cout << DESTRUCTOR << _Name << std::endl ;
 }
 
 /* *** public functions *** */
-
-int		Fixed::getRawBits( void ) const {
-	std::cout << RAWBITS ;
-	return _fixed ;
-}
-
-void	Fixed::setRawBits( int const raw ) {
-	_fixed = raw ;
-}
-
+/* GETTER */
+/* SETTER */
 /* *** private function *** */
+/* *** other *** */

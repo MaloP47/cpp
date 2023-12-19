@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:25:08 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/18 16:20:53 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/19 11:10:55 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 # include <iostream>
 
+# define DEFAULT "Default constructor called "
+# define CONSTRUCTOR "Constructor called "
 # define DESTRUCTOR "Destructor called "
 
 class	ClapTrap {
 
 	public:
 
-		ClapTrap( const std::string & name);			//Coplien default constructor
+		ClapTrap( void );								//Coplien default constructor
+		ClapTrap( const std::string & name );			
 		ClapTrap( ClapTrap const & cpy);				//Coplien copy constructor
 		~ClapTrap( void );								//Coplien destructor
 		ClapTrap &	operator=( ClapTrap const & rhs );	//Coplien copy assignement operator
@@ -39,6 +42,6 @@ class	ClapTrap {
 
 };
 
-std::ostream &	operator<<( std::ostream & o, Fixed const & rhs );
+std::ostream &	operator<<( std::ostream & o, ClapTrap const & rhs );
 
 #endif /* CLAPTRAP_HPP */

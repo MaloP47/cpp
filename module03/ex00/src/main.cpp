@@ -6,13 +6,16 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:25:38 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/18 16:13:42 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/19 11:10:32 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int main( void ) {
+	
+	ClapTrap test0;
+	ClapTrap test1("Test0");
 
 	return 0;
 }

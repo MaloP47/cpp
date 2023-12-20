@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:25:08 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/20 14:20:38 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:08:06 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class	ClapTrap {
 		void					takeDamage( unsigned int amount );
 		void					beRepaired( unsigned int amount );
 
-	private:
+	protected:
 
 		std::string				_Name;
 		unsigned int			_HitPoints;

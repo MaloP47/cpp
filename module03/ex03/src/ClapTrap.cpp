@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:26:04 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/21 10:17:55 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/22 11:09:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ bool	ClapTrap::setAttackDamage( int AD ) {
 		return false ;
 	}
 	_AttackDamage = AD;
-	std::cout << CLAP << getName() << " is boosted!\n" ;
 	return true ;
 }
 
@@ -113,31 +112,31 @@ void	ClapTrap::attack( const std::string& target ) {
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
 	if (getHitPoints() == 0) {
-		std::cout << CLAP << getName() << CT_DAM << DEAD ;
+		std::cout << getName() << CT_DAM << DEAD ;
 		return ;
 	}
 	if (amount >= getHitPoints()) {
 		setHitPoints( 0 );
-		std::cout << CRIT << CLAP << getName() << " died...\n" ;
+		std::cout << CRIT << getName() << " died...\n" ;
 		return ;
 	}
 	setHitPoints( getHitPoints() - amount );
-	std::cout << CLAP << getName() << HIT << amount << " damage. " << getHitPoints() << HPL;
+	std::cout << getName() << HIT << amount << " damage. " << getHitPoints() << HPL;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
 	if (getHitPoints() == 0) {
-		std::cout << CLAP << getName() << CT_REP << DEAD ;
+		std::cout << getName() << CT_REP << DEAD ;
 		return ;
 	}
 	if (getEnergyPoints() == 0) {
-		std::cout << CLAP << getName() << CT_REP << NRG ;
+		std::cout << getName() << CT_REP << NRG ;
 		return ;
 	}
 	if (_EnergyPoints > 0)
 		_EnergyPoints -= 1;
 	setHitPoints( getHitPoints() + amount ) ;
-	std::cout << CLAP << getName() << MNRG << amount << " was added to her/his HP. " << getHitPoints() << " hp left.\n" ;
+	std::cout << getName() << MNRG << amount << " was added to her/his HP. " << getHitPoints() << " hp left.\n" ;
 }
 
 /* *** private function *** */

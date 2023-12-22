@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:48:58 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/21 12:33:47 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/22 10:35:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define CT_G " can't activate guard mode "
 # define GUARD " is now in Gate Keeper mode.\n"
 
-class	ScavTrap : public ClapTrap {
+class	ScavTrap : virtual public ClapTrap {
 
 	public:
 

@@ -14,8 +14,8 @@ class	Template {
 		~Template( void ) ; 							//Coplien destructor
 		Template &	operator=( Template const & rhs ) ; //Coplien copy assignement operator
 
-		void *	Template::getVariable( void ) const ;	//GETTER
-		bool	Template::setVariable( void * value ) ;	//SETTER
+		void *	getVariable( void ) const ;				//GETTER
+		bool	setVariable( void * value ) ;			//SETTER
 
 	protected:
 

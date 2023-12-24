@@ -6,16 +6,45 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:09:47 by root              #+#    #+#             */
-/*   Updated: 2023/12/22 22:10:15 by root             ###   ########.fr       */
+/*   Updated: 2023/12/24 12:51:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 /* *** constructors *** */
+
+Cat::Cat( void ) : Animal() {
+	type = CAT ;
+	std::cout << DEF_CAT ;
+}
+
 /* *** copy constructor *** */
+
+Cat::Cat( Cat const & cpy) : Animal() {
+	std::cout << CAT_CPY ;	
+	*this = cpy ;
+}
+
 /* *** destructor *** */
+
+Cat::~Cat( void ) {
+	std::cout << DEST_CAT ;
+}
+
 /* *** operator = *** */
+
+Cat & Cat::operator=( Cat const & rhs ) {
+	if ( this != &rhs ) {
+		type = rhs.getType() ;
+	}
+	return *this ;
+}
+
+void	Cat::makeSound( void ) const {
+	std::cout << getType() << CAT_SOUND ;
+}
+
 /* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

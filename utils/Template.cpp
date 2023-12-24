@@ -49,5 +49,6 @@ bool	Template::setVariable( void * value ) {
 	return true ;
 }
 
+/* *** protected functions *** */
 /* *** private functions *** */
 /* *** other *** */

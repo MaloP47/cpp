@@ -1,21 +1,40 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 22:12:30 by root              #+#    #+#             */
-/*   Updated: 2023/12/22 22:12:53 by root             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+
 /* *** constructors *** */
+
+WrongCat::WrongCat( void ) : WrongAnimal() {
+	type = W_CAT ;
+	std::cout << DEF_WCAT ;
+}
+
 /* *** copy constructor *** */
+
+WrongCat::WrongCat( WrongCat const & cpy) : WrongAnimal() {
+	std::cout << W_CAT_CPY ;	
+	*this = cpy ;
+}
+
 /* *** destructor *** */
+
+WrongCat::~WrongCat( void ) {
+	std::cout << DEST_WCAT ;
+}
+
 /* *** operator = *** */
+
+WrongCat & WrongCat::operator=( WrongCat const & rhs ) {
+	if ( this != &rhs ) {
+		type = rhs.getType() ;
+	}
+	return *this ;
+}
+
+void	WrongCat::makeSound( void ) const {
+	std::cout << getType() << W_CAT_SOUND ;
+}
+
 /* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

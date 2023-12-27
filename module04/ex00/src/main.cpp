@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:06:39 by root              #+#    #+#             */
-/*   Updated: 2023/12/24 13:46:06 by root             ###   ########.fr       */
+/*   Updated: 2023/12/27 11:16:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main( void ) {
 	
-	const Animal* meta = new Animal();
+	/*const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -30,7 +31,13 @@ int	main( void ) {
 
 	delete meta ;
 	delete i ;
-	delete j ;
+	delete j ;*/
+
+	// const	WrongAnimal*	wa = new WrongAnimal() ;
+	const	WrongAnimal*	wc = new WrongCat() ;
+	wc->makeSound() ;
+	// delete wa ;
+	delete wc ;
 
 	return 0 ;
 }

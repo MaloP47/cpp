@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:06:39 by root              #+#    #+#             */
-/*   Updated: 2023/12/29 15:41:59 by root             ###   ########.fr       */
+/*   Updated: 2023/12/29 17:26:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main( void ) {
 	delete j;
 	delete i;*/
 
-	int			size = 6;
+	/*int			size = 6;
 	Animal *	array_of_animals[size];
 
 	for ( int i = 0; i < size / 2; ++i ) {
@@ -48,7 +48,9 @@ int	main( void ) {
 
 	for ( int i = 0; i < size; ++i ) {
 		delete array_of_animals[i];
-	}
+	}*/
+
+	
 
 	return 0 ;
 }

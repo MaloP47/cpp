@@ -12,14 +12,14 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= REPLACE
+NAME			= Interface
 CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-SRC_FUNCTIONS	= 
+SRC_FUNCTIONS	= main AMateria Character Cure Ice MateriaSource
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))
@@ -37,21 +37,21 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling REPLACE!...$(DEF_COLOR)"
+					@echo "$(GREY)Compiling Interface!...$(DEF_COLOR)"
 					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
-					@echo "$(GREEN)REPLACE! ready.$(DEF_COLOR)"
+					@echo "$(GREEN)Interface! ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)REPLACE! objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)Interface! objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
-					@$(RM) *.replace
+					@$(RM) *.Interface
 					
 fclean:			clean
-					@echo "$(RED)REPLACE! removed.$(DEF_COLOR)"
+					@echo "$(RED)Interface! removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for REPLACE! $(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for Interface! $(DEF_COLOR)"
 
 vcf:			$(NAME)
 					$(VALGRINDCF) ./$(NAME)

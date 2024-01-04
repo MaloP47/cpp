@@ -5,39 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:10:44 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:10:47 by mpeulet          ###   ########.fr       */
+/*   Created: 2024/01/04 11:07:34 by mpeulet           #+#    #+#             */
+/*   Updated: 2024/01/04 13:43:25 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
 int	main( void ) {
-	
-	/*const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	delete meta ;
-	delete i ;
-	delete j ;*/
-
-	// const	WrongAnimal*	wa = new WrongAnimal() ;
-	const	WrongAnimal*	wc = new WrongCat() ;
-	wc->makeSound() ;
-	// delete wa ;
-	delete wc ;
-
-	return 0 ;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }

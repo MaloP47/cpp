@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:14:27 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:14:30 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/05 12:34:02 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define RAND "Random AAnimal type"
 # define DEST "AAnimal class destructor called\n"
 # define R_SOUND " makes a random AAnimal sound.\n"
-# define AAnimal_CPY "AAnimal class copy constructor called\n"
+# define AANIMAL_CPY "AAnimal class copy constructor called\n"
 
 class	AAnimal {
 

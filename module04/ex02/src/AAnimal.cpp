@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:15:47 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:15:51 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/05 12:34:10 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ AAnimal::AAnimal( void ) : type( RAND ) {
 /* *** copy constructor *** */
 
 AAnimal::AAnimal( AAnimal const & cpy ) {
-	std::cout << AAnimal_CPY ;
+	std::cout << AANIMAL_CPY ;
 	*this = cpy ;
 }
 

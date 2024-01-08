@@ -6,18 +6,17 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:33:30 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/05 14:06:47 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/08 12:59:23 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#pragma once
 
 # include "AMateria.hpp"
 
-# define DEF_CURE "Default AMateria constructor called\n"
-# define CURE_CPY "AMateria class copy constructor called\n"
-# define DEST_AM "AMateria class destructor called\n"
+# define DEF_CURE "Default CURE constructor called\n"
+# define CURE_CPY "CURE class copy constructor called\n"
+# define DEST_CURE "CURE class destructor called\n"
 
 class	Cure : public AMateria {
 
@@ -32,4 +31,4 @@ class	Cure : public AMateria {
 		void		use( ICharacter& target ) ;
 };
 
-#endif /* CURE_HPP */
+/* CURE_HPP */

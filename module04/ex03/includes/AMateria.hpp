@@ -6,12 +6,11 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:08:02 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/05 13:50:08 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/08 13:10:15 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#pragma once
 
 # include <string>
 # include <iostream>
@@ -38,7 +37,7 @@ class	AMateria {
 		std::string const &	getType( void ) const ;
 		
 		virtual AMateria*	clone( void ) const = 0 ;
-		virtual void		use( Icharacter& target ) ;
+		virtual void		use( ICharacter & target ) ;
 
 	protected:
 
@@ -46,4 +45,4 @@ class	AMateria {
 		
 };
 
-#endif /* AMATERIA_HPP */
+/* AMATERIA_HPP */

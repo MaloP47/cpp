@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:09:24 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/05 13:46:51 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:45:24 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ AMateria & AMateria::operator=( AMateria const & rhs ) {
 /* *** public functions *** */
 
 void	AMateria::use( Icharacter& target ) {
-	std::cout << "* uses a " << getType() << " effect toward " << target.getName() << std::endl;
+	std::cout << "* uses a " << getType() << " effect toward " << target.getName() << " *"<< std::endl;
 }
 
 /* GETTER */

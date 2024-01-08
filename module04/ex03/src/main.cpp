@@ -6,11 +6,14 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:07:34 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/05 12:19:36 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/08 12:47:13 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int	main( void ) {
 

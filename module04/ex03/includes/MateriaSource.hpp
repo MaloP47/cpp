@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:40:28 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/08 13:00:20 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/09 11:21:26 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
+
+# define MS_CONST "Default MATERIASOURCE constructor called\n"
+# define MS_CPY "MATERIASOURCE class copy constructor called\n"
+# define MS_DEST "MATERIASOURCE class destructor called\n"
 
 class	MateriaSource : public IMateriaSource {
 
@@ -26,6 +30,10 @@ class	MateriaSource : public IMateriaSource {
 
 		void		learnMateria( AMateria* ) ;
 		AMateria*	createMateria( std::string const & type ) ;
+
+	private:
+
+		AMateria*	_stored[4];
 };
 
 /* MATERIASOURCE_HPP */

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:08:02 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/08 13:10:15 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/10 12:54:17 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ICharacter.hpp"
 
 # define DEF_AM "Default AMateria constructor called\n"
-# define TYPE_CONSTRUCTOR "Type constructor called\n"
+# define TYPE_CONSTRUCTOR "AMateria with type defined constructor called\n"
 # define AMATERIA_CPY "AMateria class copy constructor called\n"
 # define DEST_AM "AMateria class destructor called\n"
 
@@ -30,7 +30,7 @@ class	AMateria {
 		AMateria( void ) ;
 		AMateria( std::string const & type ) ;
 		AMateria( AMateria const & cpy ) ;
-		~AMateria( void ) ;
+		virtual ~AMateria( void ) ;
 		AMateria & operator=( AMateria const & rhs ) ;
 		
 		

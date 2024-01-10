@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:06:39 by root              #+#    #+#             */
-/*   Updated: 2023/12/30 17:58:01 by root             ###   ########.fr       */
+/*   Updated: 2024/01/10 12:33:14 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 int	main( void ) {
 
-	/*Brain	a;
+	Brain	a;
 	std::cout << a.getIdeas( 0 ) << std::endl ;
 	std::cout << a.getIdeas( -25 ) << std::endl ;
 	std::cout << a.getIdeas( 105 ) << std::endl ;
 	std::cout << a.getIdeas( 5 ) << std::endl ;
 
 	a.setIdeas( 5, "Idea 5" ) ;
-	std::cout << a.getIdeas( 5 ) << std::endl ;*/
+	std::cout << a.getIdeas( 5 ) << std::endl ;
 
 	/*const Animal* j = new Dog();
 	const Animal* i = new Cat();

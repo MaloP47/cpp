@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:16:01 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:16:03 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:48:50 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Brain::~Brain( void ) {
 /* *** operator = *** */
 
 Brain &	Brain::operator=( Brain const & rhs ) {
-	for (unsigned int i; i < NB_IDEAS; ++i) {
+	for (unsigned int i = 0; i < NB_IDEAS; ++i) {
 		ideas[i] = rhs.ideas[i] ;
 	}
 	return *this ;

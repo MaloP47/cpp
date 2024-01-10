@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 11:31:59 by root              #+#    #+#             */
-/*   Updated: 2023/12/29 14:36:37 by root             ###   ########.fr       */
+/*   Updated: 2024/01/10 15:44:00 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Brain::~Brain( void ) {
 /* *** operator = *** */
 
 Brain &	Brain::operator=( Brain const & rhs ) {
-	for (unsigned int i; i < NB_IDEAS; ++i) {
+	for (unsigned int i = 0; i < NB_IDEAS; ++i) {
 		ideas[i] = rhs.ideas[i] ;
 	}
 	return *this ;

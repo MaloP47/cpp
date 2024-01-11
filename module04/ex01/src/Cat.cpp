@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:09:47 by root              #+#    #+#             */
-/*   Updated: 2023/12/29 15:02:28 by root             ###   ########.fr       */
+/*   Updated: 2024/01/11 17:53:43 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Cat::Cat( void ) : Animal(), _catBrain( new Brain ) {
 /* *** copy constructor *** */
 
 Cat::Cat( Cat const & cpy) : Animal() {
-	std::cout << CAT_CPY ;	
+	std::cout << CAT_CPY ;
+	_catBrain = 0 ;
 	*this = cpy ;
 }
 

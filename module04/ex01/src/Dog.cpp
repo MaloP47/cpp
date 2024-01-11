@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:11:13 by root              #+#    #+#             */
-/*   Updated: 2023/12/29 15:01:04 by root             ###   ########.fr       */
+/*   Updated: 2024/01/11 17:54:06 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Dog::Dog( void ) : Animal(), _dogBrain( new Brain ) {
 /* *** copy constructor *** */
 
 Dog::Dog( Dog const & cpy ) : Animal() {
-	std::cout << DOG_CPY ;	
+	std::cout << DOG_CPY ;
+	_dogBrain = 0 ;
 	*this = cpy ;
 }
 

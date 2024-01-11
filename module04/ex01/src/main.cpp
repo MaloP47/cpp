@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:06:39 by root              #+#    #+#             */
-/*   Updated: 2024/01/10 15:46:35 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:59:02 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ int	main( void ) {
 
 		for ( int i = 0; i < size; ++i ) {
 			delete array_of_animals[i];
+		}
+	}
+	{
+		Cat tmp;
+		{
+			Cat tmp2 = tmp;
 		}
 	}
 	return 0 ;

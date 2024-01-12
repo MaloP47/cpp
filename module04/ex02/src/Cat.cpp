@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:16:09 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:16:11 by mpeulet          ###   ########.fr       */
+/*   Created: 2023/12/22 22:09:47 by root              #+#    #+#             */
+/*   Updated: 2024/01/12 11:25:35 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Cat::Cat( void ) : AAnimal(), _catBrain( new Brain ) {
 /* *** copy constructor *** */
 
 Cat::Cat( Cat const & cpy) : AAnimal() {
-	std::cout << CAT_CPY ;	
+	std::cout << CAT_CPY ;
+	_catBrain = 0 ;
 	*this = cpy ;
 }
 
@@ -45,10 +46,17 @@ Cat & Cat::operator=( Cat const & rhs ) {
 	return *this ;
 }
 
+/* GETTER */
+
+Brain*	Cat::getBrain( void ) const {
+	return _catBrain ;
+}
+
+/* *** public functions *** */
+
 void	Cat::makeSound( void ) const {
 	std::cout << getType() << CAT_SOUND ;
 }
 
-/* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

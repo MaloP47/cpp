@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:15:28 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:15:31 by mpeulet          ###   ########.fr       */
+/*   Created: 2024/01/03 13:14:07 by mpeulet           #+#    #+#             */
+/*   Updated: 2024/01/12 11:24:07 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Dog : public AAnimal {
 		Dog( Dog const & cpy ) ;
 		~Dog( void ) ;
 		Dog & operator=( Dog const & rhs ) ;
+
+		Brain*	getBrain( void ) const ;
 
 		void	makeSound( void ) const ;
 

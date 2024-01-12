@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:15:17 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:15:20 by mpeulet          ###   ########.fr       */
+/*   Created: 2024/01/03 13:13:59 by mpeulet           #+#    #+#             */
+/*   Updated: 2024/01/12 11:24:12 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Cat : public AAnimal {
 		Cat( Cat const & cpy) ;
 		~Cat( void ) ;
 		Cat & operator=( Cat const & rhs ) ;
+
+		Brain*	getBrain( void ) const ;
 
 		void	makeSound( void ) const ;
 

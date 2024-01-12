@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:11:13 by root              #+#    #+#             */
-/*   Updated: 2024/01/11 17:54:06 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 10:44:37 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,17 @@ Dog &	Dog::operator=( Dog const & rhs ) {
 	return *this ;
 }
 
+/* GETTER */
+
+Brain*	Dog::getBrain( void ) const {
+	return _dogBrain ;
+}
+
+/* *** public functions *** */
+
 void	Dog::makeSound( void ) const {
 	std::cout << getType() << DOG_SOUND ;
 }
 
-/* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

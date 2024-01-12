@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:14:07 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:14:10 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 10:44:00 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Dog : public Animal {
 		Dog( Dog const & cpy ) ;
 		~Dog( void ) ;
 		Dog & operator=( Dog const & rhs ) ;
+
+		Brain*	getBrain( void ) const ;
 
 		void	makeSound( void ) const ;
 

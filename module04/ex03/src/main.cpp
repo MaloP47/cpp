@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:07:34 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/10 14:05:29 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:27:40 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ int	main( void ) {
 		bob->equip(mat2) ;
 		bob->unequip(1) ;
 		bob->unequip(2) ;
+		bob->unequip(0) ;
+		bob->unequip(0) ;
 
 		unknown->equip(mat2);
+		unknown->equip(mat1);
 		unknown->use(0, *bob);
 
 		delete bob ;
@@ -69,6 +72,29 @@ int	main( void ) {
 		delete MateriaSrc ;
 		delete test ;
 		delete extra ;
+	}
+	std::cout << "-----------------------------------------\n" ;
+	{
+		Character	Bob("bob");
+		Character	Charlie(Bob);
+	
+		AMateria*	mat1 = new Cure() ;
+		AMateria*	mat2 = new Ice() ;
+
+		Charlie.equip(mat2);
+		Charlie.equip(mat1) ;
+	
+		Character	Equal = Charlie;
+		Equal.use(0, Bob) ;
+
+		AMateria*	mat3 = new Ice() ;
+		Equal.equip(mat3) ;
+
+		Character	David(Equal) ;
+		std::cout << "-----------------------------------------\n" ;
+		std::cout << David.getInventorySize() << std::endl ;
+		David.use(0, Charlie) ;
+		std::cout << "-----------------------------------------\n" ;
 	}
 	return 0;
 }

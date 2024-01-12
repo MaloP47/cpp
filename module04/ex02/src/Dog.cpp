@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 13:16:15 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/03 13:16:17 by mpeulet          ###   ########.fr       */
+/*   Created: 2023/12/22 22:11:13 by root              #+#    #+#             */
+/*   Updated: 2024/01/12 11:25:32 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Dog::Dog( void ) : AAnimal(), _dogBrain( new Brain ) {
 /* *** copy constructor *** */
 
 Dog::Dog( Dog const & cpy ) : AAnimal() {
-	std::cout << DOG_CPY ;	
+	std::cout << DOG_CPY ;
+	_dogBrain = 0 ;
 	*this = cpy ;
 }
 
@@ -45,10 +46,17 @@ Dog &	Dog::operator=( Dog const & rhs ) {
 	return *this ;
 }
 
+/* GETTER */
+
+Brain*	Dog::getBrain( void ) const {
+	return _dogBrain ;
+}
+
+/* *** public functions *** */
+
 void	Dog::makeSound( void ) const {
 	std::cout << getType() << DOG_SOUND ;
 }
 
-/* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

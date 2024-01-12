@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:09:47 by root              #+#    #+#             */
-/*   Updated: 2024/01/11 17:53:43 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:00:33 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,17 @@ Cat & Cat::operator=( Cat const & rhs ) {
 	return *this ;
 }
 
+/* GETTER */
+
+Brain*	Cat::getBrain( void ) const {
+	return _catBrain ;
+}
+
+/* *** public functions *** */
+
 void	Cat::makeSound( void ) const {
 	std::cout << getType() << CAT_SOUND ;
 }
 
-/* *** public functions *** */
 /* *** private functions *** */
 /* *** other *** */

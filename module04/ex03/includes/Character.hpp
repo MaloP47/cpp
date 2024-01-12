@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:36:23 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/10 13:58:59 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 09:42:05 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define CHAR_CPY "CHARACTER class copy constructor called\n"
 # define CHAR_DEST "CHARARCTER class destructor called\n"
 # define MAT_ADDED "New Materia equipped by "
-# define SIZE_LEFT " spots available in her/his inventory.\n"
+# define SIZE_LEFT " spot(s) available in her/his inventory.\n"
 # define FULL_INV "\033[0;91mInventory full!!!\n\033[0;39m"
 # define UNEQUIP_FAILED "\033[0;91mCan't unequip!!!\n\033[0;39m"
 # define USE_FAILED "\033[0;91mCan't use Materia!!!\n\033[0;39m"

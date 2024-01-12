@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:45:51 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/10 13:58:38 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/12 10:15:31 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Character::Character( Character const & cpy ) : _inventorySize( 0 ) {
 	std::cout << CHAR_CPY ;
 	for ( int i = 0; i < 4; ++i )
 		_inventory[i] = 0;
-	*this = cpy ;
+	_name = cpy.getName() ;
 }
 
 /* *** destructor *** */
@@ -84,23 +84,24 @@ void	Character::equip( AMateria* m ) {
 	else if ( _inventorySize < 4 ) {
 		_inventory[_inventorySize] = m ;
 		_inventorySize++;
-		std::cout << MAT_ADDED << getName() << " ," << 4 - ( _inventorySize ) << SIZE_LEFT ;
+		std::cout << MAT_ADDED << getName() << ", " << 4 - ( _inventorySize ) << SIZE_LEFT ;
 	}
 	else
 		std::cout << FULL_INV ;
 }
 
 void	Character::unequip( int idx ) {
-	if ( idx < 0 || idx > 3 || (unsigned)idx >= _inventorySize ) {
+	if ( idx < 0 || idx > 3 || (unsigned)idx >= _inventorySize || !_inventorySize ) {
 		std::cout << UNEQUIP_FAILED ;
 		return ;
 	}
-	std::cout << _inventory[idx]->getType() << " Materia dropped by " << getName() << std::endl ;
+	std::cout << _inventory[idx]->getType() << " Materia dropped by " << getName() ;
 	_inventory[idx] = 0 ;
 	for (int i = idx; i < 3; ++i)
 		_inventory[i] = _inventory[i + 1] ;
 	_inventory[3] = 0 ;
 	_inventorySize-- ;
+	std::cout << ", there is / are " << getInventorySize() << " Materia(s) in the inventory\n" ;
 }
 
 void	Character::use( int idx, ICharacter& target ) {

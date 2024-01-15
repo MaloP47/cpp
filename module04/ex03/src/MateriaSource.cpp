@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:48:23 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/10 12:55:00 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:02:17 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ MateriaSource::MateriaSource( MateriaSource const & cpy ) : _size( 0 ) {
 		_stored[i] = 0 ;
 	std::cout << MS_CPY ;
 	*this = cpy;
+	_size = cpy.getSize() ;
+	if ( _size > 0 ) {
+		for ( unsigned int i = 0; i < _size; ++i ) {
+			_stored[i] = cpy._stored[i]->clone() ;
+		}
+	}
 }
 
 /* *** destructor *** */

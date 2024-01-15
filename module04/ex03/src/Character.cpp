@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:45:51 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/01/12 10:15:31 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:02:08 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ Character::Character( Character const & cpy ) : _inventorySize( 0 ) {
 	for ( int i = 0; i < 4; ++i )
 		_inventory[i] = 0;
 	_name = cpy.getName() ;
+	_inventorySize = cpy.getInventorySize() ;
+	if ( _inventorySize > 0 ) {
+		for ( unsigned int i = 0; i < _inventorySize; ++i ) {
+			_inventory[i] = cpy._inventory[i]->clone() ;
+		}
+	}
 }
 
 /* *** destructor *** */

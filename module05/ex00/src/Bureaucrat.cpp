@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:49:21 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 15:27:31 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat( const std::string & name, unsigned int grade )
 			_grade = grade ;
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() ;
+		std::cout << e.what() ;
 	}
 	
 }
@@ -72,7 +72,7 @@ void	Bureaucrat::setGrade( int grade ) {
 			_grade = grade ;			
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << "Promotion candidate : " << *this ;
+		std::cout << e.what() << "Promotion candidate : " << *this ;
 	}	
 }
 
@@ -100,7 +100,7 @@ Bureaucrat&	Bureaucrat::operator++( void ) {
 			throw ( Bureaucrat::GradeTooHighException() ) ;
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << "Promotion candidate : " << *this ;
+		std::cout << e.what() << "Promotion candidate : " << *this ;
 	}	
 	return *this ;
 }
@@ -113,7 +113,7 @@ Bureaucrat&	Bureaucrat::operator--( void ) {
 			throw ( Bureaucrat::GradeTooLowException() ) ;
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << "Sack candidate : " << *this ;
+		std::cout << e.what() << "Sack candidate : " << *this ;
 	}
 	return *this ;
 }

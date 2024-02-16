@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 16:52:06 by mpeulet           #+#    #+#              #
-#    Updated: 2024/01/18 16:56:44 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/02/16 13:49:19 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= Maggots
+NAME			= Form_up
 CC				= c++
-FLAGS			= -Wall -Werror -Wextra -std=c++98
+FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
@@ -48,21 +48,21 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling Maggots!...$(DEF_COLOR)"
+					@echo "$(GREY)Compiling Form_up...$(DEF_COLOR)"
 					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
-					@echo "$(GREEN)Maggots! ready.$(DEF_COLOR)"
+					@echo "$(GREEN)Form_up ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)Maggots! objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)Form_up objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
-					@$(RM) *.Maggots
+					@$(RM) *.I_want_to_be_a_bureaucrat
 					
 fclean:			clean
-					@echo "$(RED)Maggots! removed.$(DEF_COLOR)"
+					@echo "$(RED)Form_up removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for Maggots! $(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for Form_up $(DEF_COLOR)"
 
 vcf:			$(NAME)
 					$(VALGRINDCF) ./$(NAME)

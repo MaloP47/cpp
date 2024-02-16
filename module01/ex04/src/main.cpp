@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:10:18 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/14 17:14:05 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 15:38:10 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define INVALID_EMPTY std::cout << EMPTY << std::endl
 # define INVALID_ARG std::cout << EXAMPLE << std::endl
-# define RUNTIME_ERR std::cerr << "Error: " << err.what() << std::endl
+# define RUNTIME_ERR std::out << "Error: " << err.what() << std::endl
 
 int	main(int ac, char **av) {
 

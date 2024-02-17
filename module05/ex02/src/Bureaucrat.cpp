@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:45:33 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 14:58:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,10 @@ void	Bureaucrat::signForm( Form & form ) {
 		std::cout << getName() << " couldn't sign form " <<
 		form.getName() << " because : " << e.what() ;
 	}
+}
+
+void	Bureaucrat::executeForm( AForm const & form ) {
+	
 }
 
 /* *** private functions *** */

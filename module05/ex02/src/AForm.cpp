@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:06:05 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:06:07 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 14:55:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,26 @@ void	AForm::beSigned( Bureaucrat const & approver ) {
 	try {
 		if ( _signed )
 			throw AForm::AFormIsAlreadySigned() ;
-		if ( approver.getGrade() > _toSign )
+		else if ( approver.getGrade() > _toSign )
 			throw AForm::GradeTooLowException() ;
 		else {
 			_signed = true ;
 			_signedBy = approver.getName() ;
+		}
+	}
+	catch( const std::exception& e ) {
+		std::cout << e.what() ;
+	}
+}
+
+void	AForm::execute( Bureaucrat const & executor ) const {
+	try {
+		if ( !_signed )
+			throw AForm::AFormIsNotSigned() ;
+		else if ( executor.getGrade() > _toExecute )
+			throw AForm::GradeTooLowException() ;
+		else {
+			executor.executeForm( *this ) ;
 		}
 	}
 	catch( const std::exception& e ) {

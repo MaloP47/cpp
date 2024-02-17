@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:03:35 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:03:56 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 14:49:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
-# define G2L_AForm "AForm requires a higher grade to be used.\n"
-# define G2H_AForm "AForm requires a lower grade to be used.\n"
-# define AForm_SIGNED "AForm is already signed.\n"
+# define G2L_AForm "Form requires a higher grade to be used.\n"
+# define G2H_AForm "Form requires a lower grade to be used.\n"
+# define AForm_SIGNED "Form is already signed.\n"
+# define AForm_NOT8SIGNED "Form is not signed yet, can't execute.\n"
 
 class	Bureaucrat ;
 
@@ -27,7 +28,7 @@ class	AForm {
 
 		AForm( void ) ;
 		AForm( const std::string & name, int toSign, int toExecute ) ;
-		~AForm( void ) ;
+		virtual ~AForm( void ) ;
 		AForm ( AForm const & cpy ) ;
 		AForm & operator=( AForm const & rhs ) ;
 
@@ -40,6 +41,7 @@ class	AForm {
 		void				setSigned( bool forceSignature ) ;
 
 		void				beSigned( Bureaucrat const & approver ) ;
+		void				execute( Bureaucrat const & executor ) const ;
 
 		class	GradeTooHighException : public std::exception {
 			public:
@@ -54,6 +56,12 @@ class	AForm {
 				}
 		} ;
 		class	AFormIsAlreadySigned : public std::exception {
+			public:
+				virtual const char * what( void ) const throw() {
+					return AForm_SIGNED ;
+				}
+		} ;
+		class	AFormIsNotSigned : public std::exception {
 			public:
 				virtual const char * what( void ) const throw() {
 					return AForm_SIGNED ;

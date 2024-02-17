@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:12:24 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:04:19 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 13:18:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define G2L_EXC "Bureaucrat grade can't rank lower than 150.\n"
 # define G2H_EXC "Bureaucrat grade can't rank higher than 1.\n"
 
-class	Form ;
+class	AForm ;
 
 class	Bureaucrat {
 
@@ -40,6 +40,7 @@ class	Bureaucrat {
 		void				decrementGrade( int sack ) ;
 
 		void				signForm( AForm & form) ;
+		void				executeForm( AForm const & form ) ;
 
 		class	GradeTooHighException : public std::exception {
 			public:

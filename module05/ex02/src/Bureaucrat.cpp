@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/17 14:58:20 by root             ###   ########.fr       */
+/*   Updated: 2024/02/19 14:33:48 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	Bureaucrat::incrementGrade( int promotion ) {
 	if ( promotion < 0 || promotion > INT_MAX )
 		return ;
 	for ( int i = 0; i < promotion; i++) {
+		if ( _grade == 1) 
+			return ;
 		++*this ;
 	}
 }
@@ -88,6 +90,8 @@ void	Bureaucrat::decrementGrade( int sack ) {
 	if ( sack < 0 || sack > INT_MAX )
 		return ;
 	for ( int i = 0; i < sack; i++) {
+		if ( _grade == 150 )
+			return ;
 		--*this ;
 	}
 }
@@ -118,12 +122,12 @@ Bureaucrat&	Bureaucrat::operator--( void ) {
 	return *this ;
 }
 
-void	Bureaucrat::signForm( Form & form ) {
+void	Bureaucrat::signForm( AForm & form ) {
 	try {
 		if ( form.getSigned() )
-			throw Form::FormIsAlreadySigned() ;
+			throw AForm::AFormIsAlreadySigned() ;
 		else if ( getGrade() > form.getToSign() )
-			throw Form::GradeTooLowException() ;
+			throw AForm::GradeTooLowException() ;
 		else {
 			form.setSigned( true ) ;
 			std::cout << getName() << " signed form " <<
@@ -137,7 +141,14 @@ void	Bureaucrat::signForm( Form & form ) {
 }
 
 void	Bureaucrat::executeForm( AForm const & form ) {
-	
+	try {
+		form.execute( *this ) ;
+ 	}
+	catch ( const std::exception& e ) {
+		
+	}
+	// std::cout << "Bureaucrat " << getName() << " executed form " <<
+	// form.getName() << ".\n" ;
 }
 
 /* *** private functions *** */

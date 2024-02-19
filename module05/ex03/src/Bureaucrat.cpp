@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ 	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/19 14:35:02 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/19 14:33:48 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Bureaucrat::Bureaucrat( void ) : _name( "Unknown" ), _grade( _lowestGrade ) {}
 
-Bureaucrat::Bureaucrat( const std::string & name, unsigned int grade )
+Bureaucrat::Bureaucrat( const std::string & name, int grade )
 						: _name( name ), _grade( _lowestGrade ) {
 	try {
 		if ( grade < 1 )
@@ -56,7 +56,7 @@ const std::string &	Bureaucrat::getName( void ) const {
 	return _name ;
 }
 
-unsigned int	Bureaucrat::getGrade( void ) const {
+int	Bureaucrat::getGrade( void ) const {
 	return _grade ;
 }
 
@@ -120,6 +120,35 @@ Bureaucrat&	Bureaucrat::operator--( void ) {
 		std::cout << e.what() << "Sack candidate : " << *this ;
 	}
 	return *this ;
+}
+
+void	Bureaucrat::signForm( AForm & form ) {
+	try {
+		if ( form.getSigned() )
+			throw AForm::AFormIsAlreadySigned() ;
+		else if ( getGrade() > form.getToSign() )
+			throw AForm::GradeTooLowException() ;
+		else {
+			form.setSigned( true ) ;
+			std::cout << getName() << " signed form " <<
+			form.getName() << ".\n" ;
+		}
+	}
+	catch( const std::exception& e ) {
+		std::cout << getName() << " couldn't sign form " <<
+		form.getName() << " because : " << e.what() ;
+	}
+}
+
+void	Bureaucrat::executeForm( AForm const & form ) {
+	try {
+		form.execute( *this ) ;
+ 	}
+	catch ( const std::exception& e ) {
+		
+	}
+	// std::cout << "Bureaucrat " << getName() << " executed form " <<
+	// form.getName() << ".\n" ;
 }
 
 /* *** private functions *** */

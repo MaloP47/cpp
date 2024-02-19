@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:45:33 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/19 14:34:54 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	Bureaucrat::incrementGrade( int promotion ) {
 	if ( promotion < 0 || promotion > INT_MAX )
 		return ;
 	for ( int i = 0; i < promotion; i++) {
+		if ( _grade == 1) 
+			return ;
 		++*this ;
 	}
 }
@@ -88,6 +90,8 @@ void	Bureaucrat::decrementGrade( int sack ) {
 	if ( sack < 0 || sack > INT_MAX )
 		return ;
 	for ( int i = 0; i < sack; i++) {
+		if ( _grade == 150 )
+			return ;
 		--*this ;
 	}
 }

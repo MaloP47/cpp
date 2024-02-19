@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 16:52:06 by mpeulet           #+#    #+#              #
-#    Updated: 2024/01/18 17:07:41 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/02/19 16:09:58 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ORANGE			= \033[38;5;214m
 
 NAME			= Intern
 CC				= c++
-FLAGS			= -Wall -Werror -Wextra -std=c++98
+FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes

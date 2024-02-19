@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:06:05 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/17 14:55:37 by root             ###   ########.fr       */
+/*   Created: 2024/02/19 12:35:04 by mpeulet           #+#    #+#             */
+/*   Updated: 2024/02/19 13:39:06 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,14 @@ void	AForm::execute( Bureaucrat const & executor ) const {
 		else if ( executor.getGrade() > _toExecute )
 			throw AForm::GradeTooLowException() ;
 		else {
-			executor.executeForm( *this ) ;
+			executeAction() ;
+			std::cout << "Bureaucrat " << executor.getName() <<
+			" executed " << getName() << ".\n" ;
 		}
 	}
 	catch( const std::exception& e ) {
-		std::cout << e.what() ;
+		std::cout << "Bureaucrat " << executor.getName() << " can't execute because : "
+		<< e.what() ;
 	}
 }
 
@@ -126,7 +129,7 @@ void	AForm::execute( Bureaucrat const & executor ) const {
 /* *** other *** */
 
 std::ostream & operator<<( std::ostream & os, AForm const & rhs ) {
-	os << rhs.getName() << " AForm, requires a grade " << rhs.getToSign() << " to be signed,"
+	os << rhs.getName() << " , requires a grade " << rhs.getToSign() << " to be signed,"
 	<< " requires a grade " << rhs.getToExecute() << " to execute." << "\nSigned by : "
 	<< rhs.getSignedBy() << ".\n" ;
 	return os ;

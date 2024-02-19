@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/18 16:52:06 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/19 16:47:53 by mpeulet          ###   ########.fr        #
+#    Created: 2024/02/19 16:43:10 by mpeulet           #+#    #+#              #
+#    Updated: 2024/02/19 16:44:49 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,14 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= I_want_to_be_a_bureaucrat
+NAME			= Serialization
 CC				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-SRC_FUNCTIONS	= main Bureaucrat
+SRC_FUNCTIONS	= 
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))
@@ -48,21 +48,21 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling I_want_to_be_a_bureaucrat!...$(DEF_COLOR)"
+					@echo "$(GREY)Compiling Serialization!...$(DEF_COLOR)"
 					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
-					@echo "$(GREEN)I_want_to_be_a_bureaucrat! ready.$(DEF_COLOR)"
+					@echo "$(GREEN)Serialization! ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)I_want_to_be_a_bureaucrat! objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)Serialization! objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
-					@$(RM) *.I_want_to_be_a_bureaucrat
+					@$(RM) *.Serialization
 					
 fclean:			clean
-					@echo "$(RED)I_want_to_be_a_bureaucrat! removed.$(DEF_COLOR)"
+					@echo "$(RED)Serialization! removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for I_want_to_be_a_bureaucrat! $(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for Serialization! $(DEF_COLOR)"
 
 vcf:			$(NAME)
 					$(VALGRINDCF) ./$(NAME)

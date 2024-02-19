@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:07:41 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:19:01 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/19 16:25:06 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ int	main( void ) {
 		testEqual = Uk ;
 	}
 	{
-		Intern	someRandomIntern ;
-		AForm*	rrf ;
-		AForm*	a ;
-		AForm*	b ;
-		AForm*	c ;
+		Intern		someRandomIntern ;
+		Bureaucrat	Alice( "Alice", 1 ) ;
+		AForm*		rrf ;
+		AForm*		a ;
+		AForm*		b ;
+		AForm*		c ;
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender") ;
 		b = someRandomIntern.makeForm("shrubbery creation", "b") ;
@@ -40,6 +41,9 @@ int	main( void ) {
 		std::cout << *rrf ;
 		std::cout << *b ;
 		std::cout << *c ;
+
+		Alice.signForm( *b ) ;
+		Alice.executeForm( *b ) ;
 
 		delete rrf ;
 		delete b;

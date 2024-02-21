@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 18:23:42 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/20 18:24:50 by mpeulet          ###   ########.fr       */
+/*   Created: 2024/02/20 18:40:11 by mpeulet           #+#    #+#             */
+/*   Updated: 2024/02/21 11:27:14 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class	Base {
+# include <cstdlib>
+# include <iostream>
+# include <typeinfo>
+# include <ctime>
 
-	public:
+# include "Base.hpp"
+# include "A.hpp"
+# include "B.hpp"
+# include "C.hpp"
 
-		virtual ~Base( void ) ;
-} ;
-
-/* *** BASE.HPP *** */
+Base *	generate( void ) ;
+void	identify( Base * p ) ;
+void	identify( Base & p ) ;

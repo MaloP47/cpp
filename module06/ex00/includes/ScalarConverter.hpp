@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:41:28 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/20 18:15:55 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/21 15:55:16 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,16 @@ class	ScalarConverter {
 		ScalarConverter( void ) ;
 		ScalarConverter( ScalarConverter const & cpy ) ;
 		ScalarConverter & operator=( ScalarConverter const & rhs ) ;
-		
-		bool	isChar( const std::string & literal ) ;
-		bool	isInt( const std::string & literal ) ;
-		bool	isFloat( const std::string & literal ) ;
-		bool	isDouble( const std::string & literal ) ;
-		bool	isPseudoLiteral( const std::string & literal ) ;
-		
-		void	charToElse( char c ) const ;
-		void	intToElse( int n ) const ;
-		void	floatToElse( float f ) const ;
-		void	doubleToElse( double d ) const ;
 
-		void *	stringToCast( const std::string & literal ) ;
+		static bool	isChar( const std::string & literal, char *c) ;
+		static bool	isInt( const std::string & literal, int *n ) ;
+		static bool	isFloat( const std::string & literal, float *n ) ;
+
+		static void	fromChar( char c ) ;
+		static void	fromInt( int n ) ;
+		static void	fromFloat( float f ) ;
+		static void	fromDouble( double d ) ;
+
 } ;
 
 /* *** SCALARCONVERTER.HPP *** */

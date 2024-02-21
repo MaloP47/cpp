@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 16:43:10 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/19 16:44:49 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/02/21 13:57:39 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ INCLUDES		= -I ./includes
 RM				= rm -rf
 VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-SRC_FUNCTIONS	= 
+SRC_FUNCTIONS	= main Serializer
 OBJ_DIR			= obj/
 SRC_DIR			= src/
 SRC				= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FUNCTIONS)))

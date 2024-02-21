@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:40:46 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/20 18:16:33 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/21 13:38:13 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	ScalarConverter::convert( const std::string & literal ) {
 ScalarConverter::ScalarConverter( void ) {}
 
 ScalarConverter::ScalarConverter( ScalarConverter const & cpy ) {
-	(void)cpy ;
+	static_cast<void>( cpy );
 }
 
 ScalarConverter & ScalarConverter::operator=( ScalarConverter const & rhs ) {
-	(void)rhs ;
+	static_cast<void>( rhs );
 	return *this ;
 }
 

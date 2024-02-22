@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 16:44:00 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/21 11:14:08 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/02/22 11:03:09 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= Identify_real_type
-CC				= c++
+CXX				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
@@ -45,11 +45,11 @@ $(IFMAKE_DIR):
 					
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@echo "$(ORANGE)Loading... $< $(DEF_COLOR)"
-					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
+					@$(CXX) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
 					@echo "$(GREY)Compiling Identify_real_type!...$(DEF_COLOR)"
-					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
+					@$(CXX) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
 					@echo "$(GREEN)Identify_real_type! ready.$(DEF_COLOR)"
 
 clean:

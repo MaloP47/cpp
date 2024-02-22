@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 16:42:09 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/20 13:38:56 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/02/22 11:02:42 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
 NAME			= Scalar_types
-CC				= c++
+CXX				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
@@ -45,11 +45,11 @@ $(IFMAKE_DIR):
 					
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@echo "$(ORANGE)Loading... $< $(DEF_COLOR)"
-					@$(CC) $(FLAGS) -c $< -o $@ $(INCLUDES)
+					@$(CXX) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
 					@echo "$(GREY)Compiling Scalar_types!...$(DEF_COLOR)"
-					@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
+					@$(CXX) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
 					@echo "$(GREEN)Scalar_types! ready.$(DEF_COLOR)"
 
 clean:

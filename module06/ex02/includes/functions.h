@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:40:11 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/21 11:27:14 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/23 09:11:07 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 # include <cstdlib>
 # include <iostream>
-# include <typeinfo>
 # include <ctime>
+# include <exception>
 
 # include "Base.hpp"
 # include "A.hpp"

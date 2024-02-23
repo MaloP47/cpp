@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:43:14 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/21 11:33:28 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/23 09:11:36 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	identify( Base & p ) {
 		std::cout << "\033[0;92mClass is a A type class.\n\033[0;39m" ;
 		return ;
 	}
-	catch ( std::bad_cast & e ) {
+	catch ( std::exception & e) {
 		std::cout << "\033[0;91mClass is not a type A.\n" << e.what() << "\033[0;39m" << std::endl ;
 	}
 	try {
@@ -53,7 +53,7 @@ void	identify( Base & p ) {
 		std::cout << "\033[0;92mClass is a B type class.\n\033[0;39m" ;
 		return ;
 	}
-	catch ( std::bad_cast & e ) {
+	catch ( std::exception & e) {
 		std::cout << "\033[0;91mClass is not a type B.\n" << e.what() << "\033[0;39m" << std::endl ;
 	}
 	try {
@@ -62,7 +62,7 @@ void	identify( Base & p ) {
 		std::cout << "\033[0;92mClass is a C type class.\n\033[0;39m" ;
 		return ;
 	}
-	catch ( std::bad_cast & e ) {
+	catch ( std::exception & e) {
 		std::cout << "\033[0;91mClass is not a type C.\n" << e.what() << "\033[0;39m" << std::endl ;
 	}
 	std::cout << "Class unknown.\n" ;

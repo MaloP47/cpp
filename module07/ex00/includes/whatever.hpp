@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:38:09 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/23 11:40:20 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/26 13:50:28 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	swap( T & x, T & y ) {
 
 template< typename T >
 T const &	max( T const & x, T const & y ) {
-	return x >= y ? x : y ;	
+	return x > y ? x : y ;	
 }
 
 template< typename T >
 T const &	min( T const & x, T const & y ) {
-	return x <= y ? x : y ;	
+	return x < y ? x : y ;	
 }

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:07:41 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/15 15:52:17 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:15:03 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 
 int	main( void ) {
 	{
-		Bureaucrat	Alice("Alice", 155);
-		Bureaucrat	Bob("Bob", 0);
+		try {
+			Bureaucrat	Alice("Alice", 155) ;
+		}
+		catch ( std::exception & e) {
+			std::cout << e.what() ;
+		}
+		try {
+			Bureaucrat	Bob("Bob", 0);
+		}
+		catch ( std::exception & e) {
+			std::cout << e.what() ;
+		}
 	}
 	std::cout << "-------------------------\n" ;
 	{

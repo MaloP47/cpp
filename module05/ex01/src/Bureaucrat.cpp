@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:44:52 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/19 14:34:54 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:10:29 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,14 @@
 
 Bureaucrat::Bureaucrat( void ) : _name( "Unknown" ), _grade( _lowestGrade ) {}
 
-Bureaucrat::Bureaucrat( const std::string & name, int grade )
+Bureaucrat::Bureaucrat( const std::string & name, unsigned int grade )
 						: _name( name ), _grade( _lowestGrade ) {
-	try {
 		if ( grade < 1 )
 			throw ( Bureaucrat::GradeTooHighException() ) ;
 		else if ( grade > 150 )
 			throw ( Bureaucrat::GradeTooLowException() ) ;
 		else
-			_grade = grade ;
-	}
-	catch(const std::exception& e) {
-		std::cout << e.what() ;
-	}
-	
+			_grade = grade ;	
 }
 
 /* *** copy constructor *** */

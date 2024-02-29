@@ -29,5 +29,4 @@ typename T::const_iterator	easyfind( T const & type, int const nb ) {
 			return it ;
 		else {
 			throw ::NotFound() ;
-		}
-}
+	}

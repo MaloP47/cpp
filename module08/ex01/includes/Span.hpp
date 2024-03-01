@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:38:27 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/29 18:41:00 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/01 15:17:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class	Span {
 		std::vector<int> const &	getSpan( void ) const ;
 
 		void			addNumber( int newNumber ) ;
+		void			addRange( std::vector<int>::iterator begin,
+									std::vector<int>::iterator end ) ;
 		unsigned int	shortestSpan( void ) const ;
 		unsigned int	longestSpan( void ) const ;
 

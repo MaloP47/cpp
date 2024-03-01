@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:16:19 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/02/29 18:55:44 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:24:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,21 @@ void	Span::addNumber( int newNumber ) {
 		throw Full() ;
 }
 
+void	Span::addRange( std::vector<int>::iterator begin,
+						std::vector<int>::iterator end ) {
+	unsigned int	size = std::distance( begin, end ) ;
+	if ( _span.size() + size > getSize() )
+		throw Full() ;
+	else {
+		_span.insert( _span.end(), begin, end ) ;
+	}							
+}
+
 unsigned int	Span::shortestSpan( void ) const {
 	if ( _span.size() < 2 )
 		throw NotEnough() ;
-	return 0 ;
+	std::vector<int>	vec = *std::sort( _span.begin(), _span.end() ) ;
+	return *std::min_element( ++( vec.begin()), vec.end() ) ;
 }
 
 unsigned int	Span::longestSpan( void ) const {
@@ -70,7 +81,7 @@ unsigned int	Span::longestSpan( void ) const {
 std::ostream &	operator<<( std::ostream & os, Span const & rhs ) {
 	if ( rhs.getSize() > 0 ) {
 		for( std::vector<int>::const_iterator it = rhs.getSpan().begin(); it != rhs.getSpan().end(); ++it ) {
-			os << "[" << * it << "]\n" ;
+			os << "[" << * it << "]" ;
 		}
 	}
 	return os ;

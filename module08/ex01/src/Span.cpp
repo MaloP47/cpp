@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:16:19 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/01 16:42:12 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/02 13:52:44 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,18 @@ void	Span::addRange( std::vector<int>::iterator begin,
 unsigned int	Span::shortestSpan( void ) const {
 	if ( _span.size() < 2 )
 		throw NotEnough() ;
-	std::vector<int>	vec = *std::sort( _span.begin(), _span.end() ) ;
-	return *std::min_element( ++( vec.begin()), vec.end() ) ;
+	std::vector<int>	vec( _span ) ;
+	std::sort( vec.begin(), vec.end() ) ;
+	std::vector<int>::const_iterator	it =  vec.begin() ;
+	std::vector<int>::const_iterator	next =  it + 1 ;
+	unsigned int	shortest = * next - * it ;
+	for ( ; next != vec.end(); ++it, ++next ) {
+		unsigned int	span = * next - * it ;
+		if ( span < shortest )
+			shortest = span ;
+	}
+	return shortest ;
+
 }
 
 unsigned int	Span::longestSpan( void ) const {

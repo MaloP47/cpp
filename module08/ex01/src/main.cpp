@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:16:38 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/01 16:41:45 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/02 14:12:21 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main( void ) {
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << sp ;
+		std::cout << sp << std::endl ;
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
@@ -37,7 +37,7 @@ int	main( void ) {
 		sp.addNumber(-5);
 		sp.addNumber(1);
 
-		std::cout << sp ;
+		std::cout << sp << std::endl ;
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
@@ -88,6 +88,50 @@ int	main( void ) {
 		catch ( std::exception & e ) {
 			std::cout << e.what() << std::endl ;
 		}
+	}
+	std::cout << "----------------------------------------\n" ;
+	{
+		Span	sp( 50 ) ;
+		Span	sp1( 50 ) ;
+		Span	sp2( 50 ) ;
+
+		std::vector<int>	vec(50, 42) ;
+		std::vector<int>	vec1;
+    	for (int i = 1; i <= 24; ++i) {
+        	vec1.push_back(i * 2);
+		}
+
+		sp.addRange( vec.begin(), vec.end() ) ;
+		sp1.addNumber( 43 ) ;
+		sp1.addNumber( 50 ) ;
+		try {
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch ( std::exception & e ) {
+			std::cout << e.what() << std::endl ;
+		}
+		try {
+			std::cout << sp1.shortestSpan() << std::endl;
+		}
+		catch ( std::exception & e ) {
+			std::cout << e.what() << std::endl ;
+		}
+		sp1.addRange( vec1.begin(), vec1.end() ) ;
+		std::cout << sp1 << std::endl ;
+		try {
+			std::cout << sp1.shortestSpan() << std::endl;
+		}
+		catch ( std::exception & e ) {
+			std::cout << e.what() << std::endl ;
+		}
+		sp2.addNumber( 42 ) ;
+		try {
+			std::cout << sp2.shortestSpan() << std::endl;
+		}
+		catch ( std::exception & e ) {
+			std::cout << e.what() << std::endl ;
+		}
+	}
 
 	return 0 ;
 }

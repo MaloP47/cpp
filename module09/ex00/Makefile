@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 09:25:31 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/26 09:30:07 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/03/03 16:33:24 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME			= BitcoinExchange
+NAME			= btc
 CXX				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
@@ -48,20 +48,20 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(IFMAKE_DIR)
 					@$(CXX) $(FLAGS) -c $< -o $@ $(INCLUDES)
 					
 $(NAME):		$(OBJ)
-					@echo "$(GREY)Compiling BitcoinExchange...$(DEF_COLOR)"
+					@echo "$(GREY)Compiling btc...$(DEF_COLOR)"
 					@$(CXX) $(FLAGS) -o $(NAME) $(OBJ) $(INCLUDES)
-					@echo "$(GREEN)BitcoinExchange! ready.$(DEF_COLOR)"
+					@echo "$(GREEN)btc! ready.$(DEF_COLOR)"
 
 clean:
-					@echo "$(MAGENTA)BitcoinExchange objects files cleaned!$(DEF_COLOR)"
+					@echo "$(MAGENTA)btc objects files cleaned!$(DEF_COLOR)"
 					@$(RM) $(OBJ_DIR)
 					
 fclean:			clean
-					@echo "$(RED)BitcoinExchange removed.$(DEF_COLOR)"
+					@echo "$(RED)btc removed.$(DEF_COLOR)"
 					@$(RM) $(NAME)
 
 re:				fclean all
-					@echo "$(BLUE)Cleaned and rebuilt everything for BitcoinExchange. $(DEF_COLOR)"
+					@echo "$(BLUE)Cleaned and rebuilt everything for btc. $(DEF_COLOR)"
 
 vcf:			$(NAME)
 					$(VALGRINDCF) ./$(NAME)

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 09:37:27 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/04 15:13:20 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/05 11:46:25 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <exception>
 # include <iomanip>
 
-# include <climits>
 # include <ctime>
 # include <cstdlib>
 # include <cstring>
@@ -49,6 +48,9 @@ class	BitcoinExchange {
 		std::map< tm, double, tm_sort >	_data ;
 		std::string						_input ;
 
+		bool		isExtensionValid( std::string const & file, std::string const & ext ) ;
+		void		convertBitcoinPrice( void ) ;
+		static bool	isDateValid( tm const & date ) ;
 		static tm	lineToTm( std::string const & line ) ;
 		void		parseLine( std::string & line, char delim, bool option ) ;
 		void		initDataBase( void ) ;

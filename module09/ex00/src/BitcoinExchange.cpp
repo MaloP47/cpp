@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 09:58:09 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/05 11:51:58 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/05 15:55:39 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 /* *** constructors *** */
 
-BitcoinExchange::BitcoinExchange( std::string & input ) : _input( input ) {
-	if ( !isExtensionValid( _input, ".txt" ) ) 
-		throw std::runtime_error( "Wrong input extension" ) ;
+BitcoinExchange::BitcoinExchange( std::string & input ) : _inputFile( input ) {
+	if ( !isExtensionValid( _inputFile, ".txt" ) ) 
+		throw std::runtime_error( "Wrong input extension." ) ;
 	initDataBase() ;
+	initInputFile() ;
 }
 
 BitcoinExchange::BitcoinExchange( void ) {}
@@ -35,7 +36,7 @@ BitcoinExchange::~BitcoinExchange( void ) {}
 BitcoinExchange &	BitcoinExchange::operator=( BitcoinExchange const & rhs ) {
 	if ( this != &rhs ) {
 		_data = rhs._data ;
-		_input = rhs._input ;
+		_inputFile = rhs._inputFile ;
 	}
 	return *this ;
 }
@@ -73,9 +74,16 @@ bool	BitcoinExchange::isDateValid( tm const & date ) {
 tm	BitcoinExchange::lineToTm( std::string const & line ) {
 	static tm	date ;
  	char		*res ;
+	size_t		endpos = line.find_last_not_of( " \t\r\n\v\f" ) ;
+	std::string	trimIsspace;
 
-	memset( &date, 0, sizeof( tm ) ) ;
-	res = strptime( line.c_str(), "%Y-%m-%d", &date ) ;
+	if ( endpos != std::string::npos ) {
+		trimIsspace = line.substr( 0, endpos + 1 ) ;
+		memset( &date, 0, sizeof( tm ) ) ;
+		res = strptime( trimIsspace.c_str(), "%Y-%m-%d", &date ) ;
+	}
+	else
+		throw std::runtime_error("Line contains only whitespace or is empty");
 	if ( res == NULL || *res != 0 )
 		throw std::runtime_error( "Failed conversion from string to tm, check format" ) ;
 	if ( !isDateValid( date ) ) 
@@ -90,30 +98,33 @@ void	BitcoinExchange::parseLine( std::string & line, char delim, bool option ) {
 	double				price ;
 	char				*end ;
 
-	if ( !line.find( delim ) )
+	if ( !line.find( delim ) && option )
 		throw std::runtime_error( "Invalid format, couldn't find delimiter." ) ;
-	getline( iss, date, delim ) ;
-	getline( iss, value ) ;
-	price = std::strtod( value.c_str(), &end ) ;
+	getline(iss, date, delim);
+	getline(iss, value);
+	// std::cout << "[" << value << "]" << std::endl ;
+	price = std::strtod(value.c_str(), &end);
 	if ( price == -0 || price == -0.0 || price == -0.00 )
-		price = 0 ;
-	if ( !end || *end != 0 || price < 0 || price > 2147483647.00 )
-		throw std::runtime_error( "Value is not valid." ) ;
+		price = 0;
+	if (option && (!end || *end != 0 || price < 0 || price > 2147483647.00))
+		throw std::runtime_error("Value is not valid.");
 	if ( option ) {
-		_data.insert( std::pair<tm, double>( lineToTm( date ), price ) ) ;
-		return ;
+		_data.insert(std::pair<tm, double>(lineToTm(date), price)) ;
+		return;
 	}
-	if ( price > 1000 ) {
-		std::cout << "Error: too large a number." << std::endl ;
-		return ;
-	}
+	std::map<tm, double>::const_iterator it = _data.find( lineToTm(date) ) ;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << it->second << std::endl ;
+	std::cout << price << std::endl ;
+	double total = it->second * price ; 
+	std::cout << date << " => " << value << " = " <<   total  << std::endl ;
 }
 
 void	BitcoinExchange::initDataBase( void ) {
-	std::string		data = "data/testdata.csv" ;
+	std::string		data = "data/data.csv" ;
 	if ( !isExtensionValid( data, ".csv" ) )
 		throw std::runtime_error( "Wrong data file extension" ) ;
-	std::ifstream	dataFile( "data/testdata.csv" ) ;
+	std::ifstream	dataFile( "data/data.csv" ) ;
 	std::string		line ;
 
 	if ( !dataFile.is_open() ) 
@@ -129,8 +140,8 @@ void	BitcoinExchange::initDataBase( void ) {
 	dataFile.close() ;
 }
 
-void	BitcoinExchange::convertBitcoinPrice( void ) {
-	std::ifstream	inputFile( _input ) ;
+void	BitcoinExchange::initInputFile( void ) {
+	std::ifstream	inputFile( _inputFile.c_str() ) ;
 	std::string		inputLine ;
 
 	if ( !inputFile.is_open() )
@@ -138,6 +149,12 @@ void	BitcoinExchange::convertBitcoinPrice( void ) {
 	getline( inputFile, inputLine ) ;
 	if ( inputLine != "date | value" )
 		throw std::runtime_error( "Wrong file header for input." ) ;
+	while ( getline( inputFile, inputLine ) ) {
+		if ( inputLine.size() == 0 || inputLine == "\n" )
+			continue ;
+		parseLine( inputLine, '|', false ) ;
+	}
+	inputFile.close() ;
 }
 
 /* *** other *** */

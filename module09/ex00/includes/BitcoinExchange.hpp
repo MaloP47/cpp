@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 09:37:27 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/05 15:43:48 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/06 11:25:46 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ class	BitcoinExchange {
 		void		initInputFile( void ) ;
 		static bool	isDateValid( tm const & date ) ;
 		static tm	lineToTm( std::string const & line ) ;
-		void		parseLine( std::string & line, char delim, bool option ) ;
+		void		parseLine( std::string const & line, char delim, bool option ) ;
+		void		parseLineInput( std::string const & line ) ;
 		void		initDataBase( void ) ;
+		std::map< tm, double, tm_sort >::const_iterator	findClosestKey( tm & date ) ;
 } ;
 
 /* *** BITCOINEXCHANGE.HPP *** */

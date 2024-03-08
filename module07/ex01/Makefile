@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:37:12 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/22 17:37:14 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/03/08 11:23:14 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CXX				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
-VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+VALGRINDCF		= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 SRC_FUNCTIONS	= main
 OBJ_DIR			= obj/

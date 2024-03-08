@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 16:42:09 by mpeulet           #+#    #+#              #
-#    Updated: 2024/02/22 11:02:42 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/03/08 11:22:51 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CXX				= c++
 FLAGS			= -Wall -Werror -Wextra -g3 -std=c++98 
 INCLUDES		= -I ./includes
 RM				= rm -rf
-VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+VALGRINDCF		= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 SRC_FUNCTIONS	= main ScalarConverter
 OBJ_DIR			= obj/

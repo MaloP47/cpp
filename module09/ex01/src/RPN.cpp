@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:23 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/07 15:40:05 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/08 11:03:30 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,40 +63,39 @@ void	RPN::parseInput( void ) {
 		throw std::runtime_error( "Error: Invalid format." ) ;
 }
 
-long	RPN::add( int x, int y ) {
-	long long int	res = x + y ;
+int	RPN::add( int x, int y ) {
+	long int	res = static_cast<long int>(x) + static_cast<long int>(y) ;
 	if ( res > INT_MAX || res < INT_MIN )
-		throw std::runtime_error( "Error: Possible overflow." ) ;
-	return x + y ;
+		throw std::runtime_error( "Error: overflow." ) ;
+	return static_cast<int>( res ) ;
 }
 
-long	RPN::substract( int x, int y ) {
-	long long int	res = x - y ;
+int	RPN::substract( int x, int y ) {
+	long int	res = static_cast<long int>(x) - static_cast<long int>(y) ;
 	if ( res > INT_MAX || res < INT_MIN )
-		throw std::runtime_error( "Error: Possible overflow." ) ;
-	return x - y ;
+		throw std::runtime_error( "Error: overflow." ) ;
+	return static_cast<int>( res ) ;
 }
 
-long long	RPN::multiply( int x, int y ) {
+int	RPN::multiply( int x, int y ) {
 	long long int	res = static_cast<long long int>(x) * static_cast<long long int>(y) ;
-	if ( res > INT_MAX || res < INT_MIN )
-		throw std::runtime_error( "Error: Possible overflow." ) ;
-	return x * y ;
+	if ( res > INT_MAX || res < INT_MIN ) 
+		throw std::runtime_error( "Error: overflow." ) ;
+	return static_cast<int>( res ) ;
 }
 
-long long	RPN::divide( int x, int y ) {
+int	RPN::divide( int x, int y ) {
 	if ( !y )
 		throw std::runtime_error( "Error: divide by 0 is undefined behavior." ) ;
 	long long int	res = static_cast<long long int>(x) / static_cast<long long int>(y) ;
 	if ( res > INT_MAX || res < INT_MIN )
-		throw std::runtime_error( "Error: Possible overflow." ) ;
-	return x / y ;
+		throw std::runtime_error( "Error: overflow." ) ;
+	return static_cast<int>( res ) ;
 }
 
 void	RPN::evaluate( void ) {
 	int				x = 0 ;
 	int				y = 0 ;
-	long long int	tmp = 0 ;
 	char	sign ;
 
 	for ( std::string::iterator it = _input.begin(); it != _input.end(); ++it ) {
@@ -112,28 +111,16 @@ void	RPN::evaluate( void ) {
 			_pile.pop() ;
 			switch ( sign ) {
 				case '+':
-					tmp = add( x, y ) ;
-					if ( tmp > INT_MAX || tmp < INT_MIN )
-						throw std::runtime_error( "Error: Possible overflow." ) ;
-					_pile.push( tmp ) ;
+					_pile.push( add( x, y ) ) ;
 					break;
 				case '-':
-					tmp = substract( x, y ) ;
-					if ( tmp > INT_MAX || tmp < INT_MIN )
-						throw std::runtime_error( "Error: Possible overflow." ) ;
-					_pile.push( tmp ) ;
+					_pile.push( substract( x, y ) ) ;
 					break;
 				case '*':
-					tmp = multiply( x, y ) ;
-					if ( tmp > INT_MAX || tmp < INT_MIN )
-						throw std::runtime_error( "Error: Possible overflow." ) ;
-					_pile.push( tmp ) ;
+					_pile.push( multiply( x, y ) ) ;
 					break;
 				case '/':
-					tmp = divide( x, y ) ;
-					if ( tmp > INT_MAX || tmp < INT_MIN )
-						throw std::runtime_error( "Error: Possible overflow." ) ;
-					_pile.push( tmp ) ;
+					_pile.push( divide( x, y ) ) ;
 					break;
 			}
 		}

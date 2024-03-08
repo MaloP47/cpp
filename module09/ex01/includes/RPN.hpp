@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:22:21 by mpeulet           #+#    #+#             */
-/*   Updated: 2024/03/07 15:23:57 by mpeulet          ###   ########.fr       */
+/*   Updated: 2024/03/08 10:28:36 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ class RPN {
 		std::stack< int >	_pile ;
 		std::string			_input ;
 
-		void			parseInput( void ) ;
+		void	parseInput( void ) ;
 
-		long			add( int x, int y ) ;
-		long			substract( int x, int y ) ;
-		long long		multiply( int x, int y ) ;
-		long long		divide( int x, int y ) ;
-		void			evaluate( void ) ;
+		int		add( int x, int y ) ;
+		int		substract( int x, int y ) ;
+		int		multiply( int x, int y ) ;
+		int		divide( int x, int y ) ;
+		void	evaluate( void ) ;
 
 		RPN( void ) ;
 		RPN( RPN const & cpy ) ;

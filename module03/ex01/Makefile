@@ -17,7 +17,7 @@ CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf
-VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+VALGRINDCF		= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 SRC_FUNCTIONS	= main ClapTrap ScavTrap
 OBJ_DIR			= obj/

@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 14:32:40 by mpeulet           #+#    #+#              #
-#    Updated: 2023/11/29 12:04:51 by mpeulet          ###   ########.fr        #
+#    Updated: 2024/03/08 11:20:40 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CC				= c++
 FLAGS			= -Wall -Werror -Wextra -std=c++98
 INCLUDES		= -I ./includes
 RM				= rm -rf
-VALGRINDCF		= valgrind valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+VALGRINDCF		= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 SRC_FUNCTIONS	= main newZombie randomChump Zombie
 OBJ_DIR			= obj/
